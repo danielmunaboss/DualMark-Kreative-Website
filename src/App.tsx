@@ -1,14 +1,12 @@
-import Navbar from "./components/Navbar";
-import Course from "./course/Course";
-import Whoba from "./components/assig/Whoba";
-import Love from "./components/love/Love";
+import { Route, Routes } from "react-router-dom";
+import Blogpage from "./pages/Blogpage";
+
 function App() {
   return (
     <>
-      <Navbar />
-      <Course />
-      <Whoba />
-      <Love />
+      <Routes>
+        <Route path="/" element={<Blogpage />} />
+      </Routes>
     </>
   );
 }
