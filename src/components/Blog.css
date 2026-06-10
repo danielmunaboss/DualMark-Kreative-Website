@@ -19,14 +19,14 @@
   padding-right: 40px;
 }
 .best-uni {
-  padding-top: 30vh;
+  padding-top: 28vh;
   color: white;
   font-size: 30px;
 }
 .best-uni-p {
   color: white;
   font-size: small;
-  padding-top: 12px;
+
   font-weight: lighter;
   font-style: italic;
 }
@@ -89,40 +89,38 @@ nav img {
   background-position: center;
   background-size: cover;
   position: relative;
-
+  gap: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
 }
 .blog-hero h1 {
-  font-size: 40px;
+  font-size: 30px;
   color: white;
   font-weight: bolder;
 }
 .blog-hero h4 {
-  font-size: 20px;
+  font-size: 10px;
   color: white;
   font-weight: bolder;
 
   background-color: #ec1e0f;
-  width: 78vh;
-  height: 40px;
+  width: 30%;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 5px;
 }
 .blog-hero p {
   color: white;
-  font-size: small;
+  font-size: 10px;
 }
 .btn {
-  margin-top: 20px;
+  margin-top: 15px;
   background: transparent;
-  width: 30vh;
+  width: 15%;
   height: 40px;
   transition: 1s;
   color: white;
@@ -265,7 +263,7 @@ nav img {
 .f {
   max-width: 100%;
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .nav-links {
     display: none;
   }
