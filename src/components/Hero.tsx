@@ -14,8 +14,9 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="body">
+      <header className="body">
         {/* <!-- header nav section --> */}
+
         <div className="container">
           <div className="navlogo">
             <div>
@@ -103,7 +104,7 @@ const Hero = () => {
           </section>
         </div>
         {/* <!-- js toggolemenu --> */}
-      </div>
+      </header>
     </div>
   );
 };
