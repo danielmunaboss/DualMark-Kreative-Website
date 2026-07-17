@@ -332,7 +332,7 @@ const Hero = () => {
               </div>
               <h1>IND Connect</h1>
               <p>
-                "Fast delivery, outstanding quality, and excellent customer
+                Fast delivery, outstanding quality, and excellent customer
                 services. We'll definitely work with them again."
               </p>
               <div>
