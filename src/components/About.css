@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@100;200;300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat";
+}
+.aboutuspage {
+  background-image: url(../assets/images/aboutpage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.aboutnavlogo img {
+  width: 130px;
+  height: 42px;
+  margin-top: 30px;
+}
+.aboutus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+.aboutus h1 {
+  font-size: 60px;
+  color: white;
+}
+.aboutus p {
+  font-size: 12px;
+  color: rgb(200, 218, 245);
+}
+.aboutus2 h1 {
+  font-size: 70px;
+}
+.aboutus2 p {
+  font-size: 12px;
+  color: black;
+}
+.aboutus1 {
+  margin-top: 50px;
+  padding-right: 50px;
+  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.aboutus1img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.527);
+  max-width: 400px;
+  background-image: url(../assets/images/aboutpage2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+.aboutus1img:hover {
+  margin-top: 5px;
+  transition: 0.5s;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.719);
+}
+
+.aboutus2 {
+  width: 100%;
+  max-width: 600px;
+  height: 380px;
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.527);
+  padding: 40px;
+  border-radius: 30px;
+}
+.aboutus2 h4 {
+  background-color: rgb(200, 218, 245);
+  font-size: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  color: black;
+}
+.aboutus2 p {
+  padding-top: 15px;
+  font-weight: 500;
+}
+
+.aboutus4 {
+  font-size: 12px;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 50px;
+}
+@media only screen and (max-width: 992px) {
+  .aboutus3 p {
+    font-weight: 500;
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 10px;
+  }
+  .aboutus4 {
+    font-size: 11px;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .aboutus h1 {
+    font-size: 40px;
+  }
+  .aboutus p {
+    font-size: 12px;
+    color: rgb(200, 218, 245);
+  }
+
+  .aboutus2 {
+    height: 390px;
+
+    padding: 30px;
+  }
+  .aboutus2 h4 {
+    background-color: rgb(200, 218, 245);
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    color: black;
+  }
+  .aboutus2 p {
+    padding-top: 8px;
+    font-weight: 500;
+    font-size: 9px;
+  }
+  .aboutus4 {
+    font-size: 7px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
