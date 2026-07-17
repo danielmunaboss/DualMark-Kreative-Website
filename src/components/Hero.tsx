@@ -333,7 +333,7 @@ const Hero = () => {
               <h1>IND Connect</h1>
               <p>
                 "Fast delivery, outstanding quality, and excellent customer
-                service. We'll definitely work with them again."
+                services. We'll definitely work with them again."
               </p>
               <div>
                 {Array.from({ length: 5 }).map((_, index) => (
