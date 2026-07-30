@@ -1,12 +1,5 @@
 import "./Hero.css";
-import {
-  FaArrowRight,
-  FaStar,
-  FaPhoneAlt,
-  FaMapMarkedAlt,
-  FaEnvelope,
-  FaClock,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
 import heroicons from "../assets/images/heroicons.png";
@@ -14,8 +7,6 @@ import heroicons from "../assets/images/heroicons.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import aboutlogoimg from "../assets/images/aboutlogoimg.png";
-import tt from "../assets/images/2ea96109b8c1ec1f795f2a05dce14faf.jpg";
 import contactimg from "../assets/images/contactus.png";
 
 const Hero = () => {
