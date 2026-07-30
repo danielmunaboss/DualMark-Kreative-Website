@@ -1,17 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@100;200;300;400;500;700&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "montserrat";
-}
 .aboutuspage {
   background-image: url(../assets/images/aboutpage.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 768px;
   padding-right: 50px;
   padding-left: 50px;
 }

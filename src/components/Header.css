@@ -1,0 +1,180 @@
+.navlogo img {
+  width: 150px;
+  height: 48px;
+}
+.navlogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(6, 6, 48);
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.918);
+}
+
+.navul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.navlogo ul li {
+  list-style: none;
+  padding: 0 10px;
+}
+.navlogo ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 400;
+  position: relative;
+}
+.navlogo ul li a.homeline::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  left: 0;
+  background-color: rgb(200, 218, 245);
+  display: block;
+  position: absolute;
+  border-radius: 20px;
+}
+.navul li::after {
+  content: "";
+  width: 0;
+  height: 2px;
+
+  background-color: rgb(200, 218, 245);
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.navul li:hover::after {
+  width: 100%;
+}
+.navb {
+  display: flex;
+  gap: 10px;
+}
+.navbtn {
+  padding: 5px 15px;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border: solid white 1.5px;
+  border-radius: 10px;
+}
+.navbtn2 {
+  padding: 5px 15px;
+  font-weight: 500;
+  color: white;
+  background: transparent;
+  border: solid rgb(200, 218, 245) 1.5px;
+  border-radius: 10px;
+}
+.navbtn2:hover {
+  background-color: #94caf7;
+  color: rgb(6, 6, 48);
+  transition: 1s;
+  border: none;
+}
+.navbtn:hover {
+  background-color: white;
+  color: rgb(6, 6, 48);
+  transition: 1s;
+  border: none;
+}
+@media only screen and (max-width: 768px) {
+  .navul {
+    position: absolute;
+    background: rgb(200, 218, 245);
+    height: 23vh;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    border-radius: 20px;
+    transition: 1.5s;
+    overflow: hidden;
+    display: inline-block;
+
+    z-index: 9999;
+  }
+  .navlogo img {
+    width: 100px;
+    height: 32px;
+  }
+  .navb .menu-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: 3px;
+  }
+  .navlogo ul li {
+    margin-top: 2px;
+    display: flex;
+    background-color: rgb(200, 218, 245);
+    padding: 10px;
+  }
+  .navlogo ul li a {
+    color: rgba(75, 75, 128, 0.993);
+    font-weight: 600;
+    font-size: 12px;
+
+    padding-right: 250px;
+    background-color: transparent;
+    width: 500px;
+  }
+  .navlogo ul li:hover {
+    background-color: rgb(6, 6, 48);
+    color: white;
+  }
+  .navlogo ul li a.homeline::after {
+    display: none;
+  }
+  .navul li::after {
+    display: none;
+  }
+  .navbtn {
+    padding: 4px 20px;
+    font-weight: 500;
+    color: white;
+    background: transparent;
+    border: solid white 1.5px;
+    border-radius: 10px;
+    font-size: 8px;
+  }
+  .navbtn2 {
+    padding: 4px 20px;
+    font-weight: 500;
+    color: white;
+    background: transparent;
+    border: solid rgb(200, 218, 245) 1.5px;
+    border-radius: 10px;
+    font-size: 8px;
+  }
+  .navb .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .navbtn {
+    padding: 4px 20px;
+    font-weight: 400;
+    color: white;
+    background: transparent;
+    border: solid white 1.5px;
+    border-radius: 10px;
+    font-size: 7px;
+  }
+  .navbtn2 {
+    padding: 4px 15px;
+    font-weight: 400;
+    color: white;
+    background: transparent;
+    border: solid rgb(200, 218, 245) 1.5px;
+    border-radius: 10px;
+    font-size: 7px;
+  }
+}

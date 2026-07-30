@@ -1,6 +1,6 @@
 import "./About.css";
-import aboutdmklogo from "../assets/images/DMK LOGO DUAL MARK KREATIVE2.png";
-import { Link, useLocation } from "react-router-dom";
+
+import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -20,11 +20,6 @@ const About = () => {
   return (
     <div>
       <div className="aboutuspage">
-        <Link to="/">
-          <div className="aboutnavlogo">
-            <img src={aboutdmklogo} />
-          </div>
-        </Link>{" "}
         <div className="aboutus">
           <h1 data-aos="fade-out" data-aos-delay="800">
             About Us
