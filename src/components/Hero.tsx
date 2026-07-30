@@ -44,7 +44,7 @@ const Hero = () => {
               <h1>TURNING IDEAS INTO IMPACTFUL BRAND EXPERIENCES.</h1>
               <p>
                 We Create Stunning Designs, Build Modern Websites, Produce
-                Engaging Videos, And Deliver High-Quality Print Solutions.
+                Engaging Videos, And Deliver High-Quality Print Solutions..
               </p>
             </div>
             {/* <!-- call to action --> */}
