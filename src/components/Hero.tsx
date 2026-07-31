@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import contactimg from "../assets/images/contactus.png";
 
 const Hero = () => {
+  alert("Welcome to DMK Concepts");
+
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,12 +68,20 @@ const Hero = () => {
       {/* <!-- ===================== SERVICES ===================== --> */}
       <section className="dm-services" id="services">
         <div className="dm-container">
-          <p className="dm-eyebrow-dark">SERVICES</p>
+          <p className="dm-eyebrow-dark" data-aos="fade-up" data-aos-delay="50">
+            SERVICES
+          </p>
 
-          <h2>What We Do</h2>
+          <h2 data-aos="fade-up" data-aos-delay="50">
+            What We Do
+          </h2>
 
           <div className="dm-service-grid">
-            <article className="dm-service-card">
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
               <h3>Brand Identity</h3>
               <p>
                 Strategic logos, visual identity systems, typography, color
@@ -79,7 +89,11 @@ const Hero = () => {
               </p>
             </article>
 
-            <article className="dm-service-card">
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
               <h3>Web Design & Development</h3>
               <p>
                 Responsive websites built with modern technologies, optimized
@@ -87,7 +101,11 @@ const Hero = () => {
               </p>
             </article>
 
-            <article className="dm-service-card">
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
               <h3>UI / UX Design</h3>
               <p>
                 Intuitive user interfaces and thoughtful digital experiences
@@ -95,7 +113,11 @@ const Hero = () => {
               </p>
             </article>
 
-            <article className="dm-service-card">
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
               <h3>Digital Marketing</h3>
               <p>
                 Creative campaigns, social media branding, and marketing
@@ -126,11 +148,19 @@ const Hero = () => {
       <section className="dm-about" id="about">
         <div className="dm-container-dm-about-wrapper">
           <div className="dm-about-content">
-            <p className="dm-eyebrow-dm-eyebrow-dark">About Us</p>
+            <p
+              className="dm-eyebrow-dm-eyebrow-dark"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              About Us
+            </p>
 
-            <h2>Creative solutions with timeless design.</h2>
+            <h2 data-aos="fade-up" data-aos-delay="50">
+              Creative solutions with timeless design.
+            </h2>
 
-            <p>
+            <p data-aos="fade-up" data-aos-delay="50">
               We blend creativity, strategy, and technology to create memorable
               brands and digital products that inspire confidence and leave
               lasting impressions.
@@ -138,17 +168,17 @@ const Hero = () => {
           </div>
 
           <div className="dm-about-stats">
-            <div className="dm-stat">
+            <div className="dm-stat" data-aos="fade-up" data-aos-delay="50">
               <h3>50+</h3>
               <p>Projects</p>
             </div>
 
-            <div className="dm-stat">
+            <div className="dm-stat" data-aos="fade-up" data-aos-delay="70">
               <h3>30+</h3>
               <p>Clients</p>
             </div>
 
-            <div className="dm-stat">
+            <div className="dm-stat" data-aos="fade-up" data-aos-delay="90">
               <h3>5+</h3>
               <p>Years Experience</p>
             </div>
@@ -161,17 +191,31 @@ const Hero = () => {
         <div className="dm-container-dm-contact-wrapper">
           {/* <!-- Contact Info --> */}
           <div className="dm-contact-info">
-            <p className="dm-eyebrow">Contact</p>
+            <p className="dm-eyebrow" data-aos="fade-up" data-aos-delay="50">
+              Contact
+            </p>
 
-            <h2>Let's create something remarkable.</h2>
+            <h2 data-aos="fade-up" data-aos-delay="50">
+              Let's create something remarkable.
+            </h2>
 
-            <p>Email: abrahamdanielmunachi@gmail.com</p>
-            <p>Phone: +234 704 457 2371</p>
-            <p>Location: Nigeria</p>
+            <p data-aos="fade-up" data-aos-delay="50">
+              Email: abrahamdanielmunachi@gmail.com
+            </p>
+            <p data-aos="fade-up" data-aos-delay="50">
+              Phone: +234 704 457 2371
+            </p>
+            <p data-aos="fade-up" data-aos-delay="50">
+              Location: Nigeria
+            </p>
           </div>
 
           {/* <!-- Contact Form --> */}
-          <form className="dm-contact-form">
+          <form
+            className="dm-contact-form"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
             <input type="text" placeholder="Full Name" required />
 
             <input type="email" placeholder="Email Address" required />

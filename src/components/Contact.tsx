@@ -17,6 +17,7 @@ const Contact = () => {
       once: true,
     });
   }, []);
+
   return (
     <div>
       <section className="Contactusmain">
@@ -48,6 +49,7 @@ const Contact = () => {
                       type="text"
                       placeholder="Enter You Name"
                       className="form1"
+                      required
                     />
                   </div>
 
@@ -57,6 +59,7 @@ const Contact = () => {
                       type="email"
                       placeholder="Enter You Email"
                       className="form1"
+                      required
                     />
                   </div>
                 </div>
@@ -67,10 +70,15 @@ const Contact = () => {
                   id=""
                   placeholder="Write Your Message"
                   className="form2"
+                  required
                 />
               </form>
               <div className="Contact-btn">
-                <button className="Contact-btn1">Send Message</button>
+                <Link to="">
+                  <button className="Contact-btn1" type="submit">
+                    Send Message
+                  </button>
+                </Link>
               </div>
               <div className="Contact-icons">
                 <Link to="">

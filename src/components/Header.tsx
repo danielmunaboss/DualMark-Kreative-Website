@@ -39,18 +39,28 @@ const Header = () => {
             style={{ maxHeight: menuOpen ? "200px" : "0px" }}
           >
             <li>
-              <Link to="" className="homeline">
+              <Link
+                to="/"
+                onClick={() => setMenuOpen(false)}
+                className="homeline"
+              >
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="./About">ABOUT</Link>
+              <Link to="./About" onClick={() => setMenuOpen(false)}>
+                ABOUT
+              </Link>
             </li>
             <li>
-              <Link to="">PRODUCTS</Link>
+              <Link to="" onClick={() => setMenuOpen(false)}>
+                PRODUCTS
+              </Link>
             </li>
             <li>
-              <Link to="/Contact">CONTACT US</Link>
+              <Link to="/Contact" onClick={() => setMenuOpen(false)}>
+                CONTACT US
+              </Link>
             </li>
           </ul>
         </nav>

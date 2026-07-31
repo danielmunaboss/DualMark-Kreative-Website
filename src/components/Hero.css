@@ -262,7 +262,7 @@ body {
   }
   .hero1 h1 {
     padding-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 800;
     width: 100%;
     max-width: 900px;
@@ -681,6 +681,24 @@ body {
     display: flex;
     justify-content: center;
     margin-right: 20px;
+  }
+  .dm-contact-info p {
+    font-size: small;
+  }
+  .dm-contact-info h2 {
+    font-size: 27px;
+  }
+  .dm-about-content h2 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .dm-about-content p {
+    font-size: 15px;
+  }
+  .dm-contact-form {
+    padding-bottom: 15px;
+    padding-top: 15px;
   }
 }
 .footer {
