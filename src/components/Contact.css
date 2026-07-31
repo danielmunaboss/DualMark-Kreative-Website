@@ -149,9 +149,9 @@ form {
 .facebook:hover {
   color: rgb(70, 70, 189);
 }
-.or {
+.or p {
   text-align: center;
-  font-size: smaller;
+  font-size: 9px;
 
   font-weight: 300;
   color: rgb(196, 192, 192);

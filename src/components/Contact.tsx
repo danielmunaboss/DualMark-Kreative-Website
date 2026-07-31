@@ -119,7 +119,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 {" "}
-                <FaWhatsapp size={30} className="whatsapp" />{" "}
+                <FaWhatsapp size={20} className="whatsapp" />{" "}
               </a>
               <a
                 href="https://www.facebook.com/share/19Ad45EhXF/"
@@ -127,7 +127,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 {" "}
-                <FaFacebookF size={30} className="facebook" />
+                <FaFacebookF size={20} className="facebook" />
               </a>
             </div>
           </form>
