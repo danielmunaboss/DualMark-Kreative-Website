@@ -94,9 +94,10 @@
     top: 70px;
     right: 0px;
     border-radius: 20px;
-    transition: 1.5s;
+
     overflow: hidden;
     display: inline-block;
+    justify-content: flex-start;
 
     z-index: 9999;
   }

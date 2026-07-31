@@ -1,11 +1,46 @@
 import "./Contact.css";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import contactimg from "../assets/images/contactus.png";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      emailjs
+        .sendForm(
+          "service_5woqrx9",
+          "template_nge34bf",
+          form.current!,
+          "C9s5TsnSNsIH_EaWs",
+        )
+        .then(() => {
+          toast.success("✅ Message sent successfully!");
+          form.current?.reset();
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("❌ Failed to send message.");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 3000);
+  };
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,77 +55,86 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="Contactusmain">
-        <section>
-          <div className="Contactuspage">
-            <h1>
-              <h6 data-aos="fade-up" data-aos-delay="50">
-                CONTACT US TODAY
-              </h6>
-            </h1>
-            <p data-aos="fade-up" data-aos-delay="90">
-              Let's Create Something Exceptional Together.
-              <div className="contactusuderline"></div>
+      {/* <!-- ===================== CONTACT ===================== --> */}
+      <section className="dm-contact" id="contact">
+        <div className="dm-container-dm-contact-wrapper">
+          {/* <!-- Contact Info --> */}
+          <div className="dm-contact-info">
+            <p className="dm-eyebrow" data-aos="fade-up" data-aos-delay="50">
+              Contact
             </p>
+
+            <h2 data-aos="fade-up" data-aos-delay="50">
+              Let's create something remarkable.
+            </h2>
           </div>
-        </section>
-        <section>
-          <div className="contact-form">
-            <div
-              className="contact-form1"
-              data-aos="fade-up"
-              data-aos-delay="90"
+
+          {/* <!-- Contact Form --> */}
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="dm-contact-form"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
+            <input type="text" name="name" placeholder="Full Name" required />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+
+            <input type="text" name="title" placeholder="Subject" required />
+            <input
+              type="tel"
+              name="whatsapp"
+              placeholder="Whatsapp Number"
+              required
+            />
+
+            <textarea
+              rows={6}
+              placeholder="Tell us about your project..."
+              name="message"
+              required
+            ></textarea>
+
+            <button
+              type="submit"
+              className="dm-btn-dm-btn-primary"
+              disabled={loading}
             >
-              <form action="">
-                <div className="name-email">
-                  <div className="name-email1">
-                    <h4 className="formtag">Enter Your Name</h4>
-                    <input
-                      type="text"
-                      placeholder="Enter You Name"
-                      className="form1"
-                      required
-                    />
-                  </div>
+              {loading ? "Sending..." : "Send Message"}
+            </button>
 
-                  <div className="name-email1">
-                    <h4 className="formtag">Enter Your Email</h4>
-                    <input
-                      type="email"
-                      placeholder="Enter You Email"
-                      className="form1"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <h4 className="formtag">Message</h4>
-                <textarea
-                  name=""
-                  id=""
-                  placeholder="Write Your Message"
-                  className="form2"
-                  required
-                />
-              </form>
-              <div className="Contact-btn">
-                <Link to="">
-                  <button className="Contact-btn1" type="submit">
-                    Send Message
-                  </button>
-                </Link>
-              </div>
-              <div className="Contact-icons">
-                <Link to="">
-                  <FaWhatsapp size={20} className="Contact-icons1" />
-                </Link>
-                <Link to="">
-                  <FaFacebookF size={20} className="Contact-icons1" />
-                </Link>
-              </div>
+            <div className="or">
+              <p>Or Chat Us Directly On</p>
             </div>
-          </div>
-        </section>
+            <div className="icon-conta">
+              <a
+                href="https://wa.me/2347044572371"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                <FaWhatsapp size={30} className="whatsapp" />{" "}
+              </a>
+              <a
+                href="https://www.facebook.com/share/19Ad45EhXF/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                <FaFacebookF size={30} className="facebook" />
+              </a>
+            </div>
+          </form>
+        </div>
+        <div className="contactimg">
+          <img src={contactimg} />
+        </div>
       </section>
     </div>
   );
