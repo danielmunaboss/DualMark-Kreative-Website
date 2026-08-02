@@ -690,7 +690,7 @@ button {
 
 .dm-closing .dm-btn {
   font-size: 1rem;
-
+  font-weight: 500;
   padding: 16px 36px;
 }
 
@@ -743,6 +743,9 @@ button {
 /* ============================= */
 
 @media (max-width: 768px) {
+  .dm-about-hero-copy {
+    font-size: 14px;
+  }
   .dm-about-hero {
     padding: 80px 25px;
 

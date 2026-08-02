@@ -523,7 +523,7 @@ body {
 }
 .aboutbtn {
   margin-top: 10px;
-  padding: 1.6vh 11.5vh;
+  padding: 1.6vh 9.5vh;
   margin-top: 30px;
   font-size: 13px;
   font-weight: 300;
@@ -695,7 +695,7 @@ body {
 }
 .contactbtn {
   margin-top: 9px;
-  padding: 1.6vh 11.5vh;
+  padding: 1.6vh 9.5vh;
 
   font-size: 14px;
   font-weight: 500;
@@ -754,7 +754,7 @@ body {
     padding-top: 15px;
   }
   .our-portfolio1 h1 {
-    font-size: 30px;
+    font-size: 27px;
   }
   .our-portfolio1 p {
     font-size: 5px;
