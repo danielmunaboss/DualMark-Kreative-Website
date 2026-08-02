@@ -57,10 +57,14 @@ const Hero = () => {
                   {" "}
                   <button className="callbtn">Explore Our Portfolio</button>
                 </Link>
-                <Link to="/Contact">
+                <a
+                  href="https://wa.me/2347044572371"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {" "}
                   <button className="callbtn2">Get Started</button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -160,7 +164,7 @@ const Hero = () => {
               <FaBullhorn size={20} />
               <h3>Digital Marketing</h3>
               <p>
-                Creative campaigns, content strategies social media branding,
+                Creative campaigns, content strategies, social media branding,
                 and growth strategies that put you in front of the right
                 audience.
               </p>

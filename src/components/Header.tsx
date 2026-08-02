@@ -10,6 +10,7 @@ import menuicon from "../assets/images/menu.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -58,13 +59,19 @@ const Header = () => {
           </ul>
         </nav>
         <div className="navb">
-          <Link to="">
+          <Link to="https://wa.me/2347044572371">
             {" "}
-            <button className="navbtn">Log in</button>
+            <button className="navbtn">
+              {" "}
+              <FaWhatsapp size={15} />
+            </button>
           </Link>
           <Link to="">
             {" "}
-            <button className="navbtn2">Sign up</button>
+            <button className="navbtn2">
+              {" "}
+              <FaInstagram size={15} />
+            </button>
           </Link>
           <div className="menu-icon11">
             <img src={menuicon} className="menu-icon" onClick={manutoggole} />

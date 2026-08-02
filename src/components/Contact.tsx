@@ -1,6 +1,6 @@
 import "./Contact.css";
 import { useLocation } from "react-router-dom";
-import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -123,15 +123,11 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 {" "}
-                <FaWhatsapp size={20} className="whatsapp" />{" "}
+                <FaWhatsapp size={25} className="whatsapp" />{" "}
               </a>
-              <a
-                href="https://www.facebook.com/share/19Ad45EhXF/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="" target="_blank" rel="noopener noreferrer">
                 {" "}
-                <FaFacebookF size={20} className="facebook" />
+                <FaInstagram size={25} className="facebook" />
               </a>
             </div>
           </form>
