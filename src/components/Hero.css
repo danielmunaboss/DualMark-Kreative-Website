@@ -523,9 +523,9 @@ body {
 }
 .aboutbtn {
   margin-top: 10px;
-  padding: 2vh 13.5vh;
+  padding: 1.6vh 11.5vh;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 300;
   color: white;
   background: black;
@@ -694,10 +694,10 @@ body {
   margin-right: 80px;
 }
 .contactbtn {
-  margin-top: 10px;
-  padding: 2vh 13.5vh;
+  margin-top: 9px;
+  padding: 1.6vh 11.5vh;
 
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: rgb(6, 6, 48);
   background: #bba970;
@@ -752,6 +752,15 @@ body {
   .dm-contact-form {
     padding-bottom: 15px;
     padding-top: 15px;
+  }
+  .our-portfolio1 h1 {
+    font-size: 20px;
+  }
+  .our-portfolio1 p {
+    font-size: 5px;
+  }
+  .our-portfolio1 h5 {
+    font-size: 13px;
   }
 }
 .footer {
