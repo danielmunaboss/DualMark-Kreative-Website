@@ -68,7 +68,7 @@ const Footer = () => {
               <FaEnvelope size={10} /> <small>dmk@gmail.com</small>
             </p>
             <p className="footerp">
-              <FaMapMarkedAlt size={10} /> <small>OWERR, IMO STATE</small>
+              <FaMapMarkedAlt size={10} /> <small>OWERRI, IMO STATE</small>
             </p>
             <div className="footer-icons">
               {" "}
