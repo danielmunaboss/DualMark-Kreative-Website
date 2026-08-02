@@ -1,5 +1,13 @@
 import "./Hero.css";
-import { FaArrowRight } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaBullhorn,
+  FaCode,
+  FaGem,
+  FaPalette,
+  FaPrint,
+  FaVideo,
+} from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
 import heroicons from "../assets/images/heroicons.png";
@@ -10,8 +18,6 @@ import { useEffect } from "react";
 import contactimg from "../assets/images/contactus.png";
 
 const Hero = () => {
-  alert("Welcome to DMK Concepts");
-
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,12 +33,16 @@ const Hero = () => {
   return (
     <div className="body">
       <div className="container">
+        <div className="launch-date">
+          {" "}
+          🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026.
+        </div>
         {/* <!-- header nav ends here --> */}
 
         {/* <!-- hero section --> */}
         <section className="hero">
           <div className="hero1">
-            <span>CREATIVE BRAND HUB.</span>
+            <span>Creative Brand Hub.</span>
             <div>
               <h1>TURNING IDEAS INTO IMPACTFUL BRAND EXPERIENCES.</h1>
               <p>
@@ -69,7 +79,7 @@ const Hero = () => {
       <section className="dm-services" id="services">
         <div className="dm-container">
           <p className="dm-eyebrow-dark" data-aos="fade-up" data-aos-delay="50">
-            SERVICES
+            Services
           </p>
 
           <h2 data-aos="fade-up" data-aos-delay="50">
@@ -82,10 +92,11 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="50"
             >
-              <h3>Brand Identity</h3>
+              <FaGem size={20} />
+              <h3>Branding</h3>
               <p>
-                Strategic logos, visual identity systems, typography, color
-                palettes, and branding guidelines.
+                Complete brand identity: logos, color palettes, typography, and
+                guidelines that make your business unforgettable.
               </p>
             </article>
 
@@ -94,10 +105,11 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="50"
             >
-              <h3>Web Design & Development</h3>
+              <FaPalette size={20} />
+              <h3>Graphics Design</h3>
               <p>
-                Responsive websites built with modern technologies, optimized
-                for performance and conversions.
+                Eye-catching flyers, social media content, posters, and
+                corporate materials designed to grab attention.
               </p>
             </article>
 
@@ -106,10 +118,11 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="50"
             >
-              <h3>UI / UX Design</h3>
+              <FaVideo size={20} />
+              <h3>Video Editing</h3>
               <p>
-                Intuitive user interfaces and thoughtful digital experiences
-                that delight users.
+                Engaging video edits, motion graphics, and ads that tell your
+                brand story and drive engagement.
               </p>
             </article>
 
@@ -118,10 +131,38 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="50"
             >
+              <FaCode size={20} />
+              <h3>Website Development</h3>
+              <p>
+                Fast, responsive, and conversion-focused websites built with
+                modern technologies for your business.
+              </p>
+            </article>
+
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              <FaPrint size={20} />
+              <h3>Printing</h3>
+              <p>
+                Quality printing for business cards, brochures, banners, branded
+                packaging and event materials.
+              </p>
+            </article>
+
+            <article
+              className="dm-service-card"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              <FaBullhorn size={20} />
               <h3>Digital Marketing</h3>
               <p>
-                Creative campaigns, social media branding, and marketing
-                strategies that drive growth.
+                Creative campaigns, content strategies social media branding,
+                and growth strategies that put you in front of the right
+                audience.
               </p>
             </article>
           </div>
@@ -132,14 +173,18 @@ const Hero = () => {
       <section className="our-portfolio">
         <div className="our-portfolio1" data-aos="fade-up" data-aos-delay="50">
           <h1>OUR PORTFOLIO</h1>
-          <h5>Our Work Speaks for Itself</h5>
+          <h5>Explore Our Creative Journey</h5>
           <p>
             Every project tells a story of creativity, passion, and excellence.
             Explore our portfolio to discover beautifully crafted designs,
             modern websites, engaging videos, and premium print materials
             created for businesses and individuals across various industries.
           </p>
-          <button className="portfolio1-btn">
+          <button
+            className="portfolio1-btn"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
             Explore Now <FaArrowRight />
           </button>
         </div>
@@ -169,7 +214,7 @@ const Hero = () => {
 
           <div className="dm-about-stats">
             <div className="dm-stat" data-aos="fade-up" data-aos-delay="50">
-              <h3>50+</h3>
+              <h3>100+</h3>
               <p>Projects</p>
             </div>
 
@@ -179,10 +224,16 @@ const Hero = () => {
             </div>
 
             <div className="dm-stat" data-aos="fade-up" data-aos-delay="90">
-              <h3>5+</h3>
+              <h3>7+</h3>
               <p>Years Experience</p>
             </div>
           </div>
+          <Link to="/About">
+            {" "}
+            <button className="aboutbtn" data-aos="fade-up" data-aos-delay="50">
+              Read More{" "}
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -210,28 +261,16 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* <!-- Contact Form --> */}
-          <form
-            className="dm-contact-form"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <input type="text" placeholder="Full Name" required />
-
-            <input type="email" placeholder="Email Address" required />
-
-            <input type="text" placeholder="Subject" required />
-
-            <textarea
-              rows={6}
-              placeholder="Tell us about your project..."
-              required
-            ></textarea>
-
-            <button type="submit" className="dm-btn-dm-btn-primary">
-              Send Message
+          <Link to="/Contact">
+            {" "}
+            <button
+              className="contactbtn"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              Contact Us{" "}
             </button>
-          </form>
+          </Link>
         </div>
         <div className="contactimg">
           <img src={contactimg} />

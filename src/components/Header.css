@@ -57,6 +57,10 @@
   display: flex;
   gap: 10px;
 }
+
+.menu-icon11 {
+  margin-top: 5px;
+}
 .navbtn {
   padding: 5px 15px;
   font-weight: 500;
@@ -68,16 +72,15 @@
 .navbtn2 {
   padding: 5px 15px;
   font-weight: 500;
-  color: white;
-  background: transparent;
+  color: rgb(6, 6, 48);
+  background: rgb(200, 218, 245);
   border: solid rgb(200, 218, 245) 1.5px;
   border-radius: 10px;
 }
 .navbtn2:hover {
-  background-color: #94caf7;
-  color: rgb(6, 6, 48);
+  background-color: transparent;
+  color: white;
   transition: 1s;
-  border: none;
 }
 .navbtn:hover {
   background-color: white;
@@ -87,20 +90,73 @@
 }
 @media only screen and (max-width: 768px) {
   .navul {
-    position: absolute;
-    background: rgb(200, 218, 245);
-    height: 23vh;
-    width: 100%;
+    position: fixed;
     top: 70px;
-    right: 0px;
-    border-radius: 20px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
 
-    overflow: hidden;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
+    gap: 18px;
+
+    padding: 35px 20px;
+
+    background: rgb(6, 6, 48);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.4s ease;
 
     z-index: 9999;
   }
+
+  .navul.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navul li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .navul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 16px;
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+
+    transition: 0.3s ease;
+  }
+
+  .navul li a:hover,
+  .navul li a.active {
+    background: rgb(200, 218, 245);
+    color: #fff;
+    transform: translateX(8px);
+  }
+  .navul li::after {
+    display: none;
+  }
+
   .navlogo img {
     width: 100px;
     height: 32px;
@@ -110,33 +166,8 @@
     cursor: pointer;
     margin-top: 3px;
   }
-  .navlogo ul li {
-    margin-top: 2px;
-    display: flex;
-    background-color: rgb(200, 218, 245);
-    padding: 10px;
-  }
-  .navlogo ul li a {
-    color: rgba(75, 75, 128, 0.993);
-    font-weight: 600;
-    font-size: 12px;
-
-    padding-right: 250px;
-    background-color: transparent;
-    width: 500px;
-  }
-  .navlogo ul li:hover {
-    background-color: rgb(6, 6, 48);
-    color: white;
-  }
-  .navlogo ul li a.homeline::after {
-    display: none;
-  }
-  .navul li::after {
-    display: none;
-  }
   .navbtn {
-    padding: 4px 20px;
+    padding: 5.5px 20px;
     font-weight: 500;
     color: white;
     background: transparent;
@@ -145,11 +176,9 @@
     font-size: 8px;
   }
   .navbtn2 {
-    padding: 4px 20px;
+    padding: 5.5px 20px;
     font-weight: 500;
-    color: white;
-    background: transparent;
-    border: solid rgb(200, 218, 245) 1.5px;
+
     border-radius: 10px;
     font-size: 8px;
   }

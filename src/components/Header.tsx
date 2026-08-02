@@ -34,16 +34,9 @@ const Header = () => {
           <img src={dmklogo} />
         </div>
         <nav>
-          <ul
-            className="navul"
-            style={{ maxHeight: menuOpen ? "200px" : "0px" }}
-          >
+          <ul className={`navul ${menuOpen ? "active" : ""}`}>
             <li>
-              <Link
-                to="/"
-                onClick={() => setMenuOpen(false)}
-                className="homeline"
-              >
+              <Link to="/" onClick={() => setMenuOpen(false)} className="">
                 HOME
               </Link>
             </li>
@@ -73,8 +66,9 @@ const Header = () => {
             {" "}
             <button className="navbtn2">Sign up</button>
           </Link>
-
-          <img src={menuicon} className="menu-icon" onClick={manutoggole} />
+          <div className="menu-icon11">
+            <img src={menuicon} className="menu-icon" onClick={manutoggole} />
+          </div>
         </div>
       </div>
     </div>

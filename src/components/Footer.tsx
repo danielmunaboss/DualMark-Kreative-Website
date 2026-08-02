@@ -72,9 +72,13 @@ const Footer = () => {
             </p>
             <div className="footer-icons">
               {" "}
-              <Link to="">
+              <a
+                href="https://www.facebook.com/share/19Ad45EhXF/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaFacebookF size={15} className="footer-icons1" />
-              </Link>
+              </a>
               <Link to="">
                 <FaLinkedinIn size={15} className="footer-icons1" />
               </Link>
@@ -84,12 +88,20 @@ const Footer = () => {
               <Link to="">
                 <FaInstagram size={15} className="footer-icons1" />
               </Link>
-              <Link to="">
+              <a
+                href="https://wa.me/2347044572371"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaWhatsapp size={15} className="footer-icons1" />
-              </Link>
-              <Link to="">
+              </a>
+              <a
+                href="https://github.com/danielmunaboss"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub size={15} className="footer-icons1" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

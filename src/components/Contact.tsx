@@ -55,6 +55,10 @@ const Contact = () => {
 
   return (
     <div>
+      <div className="launch-date">
+        {" "}
+        🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026
+      </div>
       {/* <!-- ===================== CONTACT ===================== --> */}
       <section className="dm-contact" id="contact">
         <div className="dm-container-dm-contact-wrapper">

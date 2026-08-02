@@ -1,76 +1,217 @@
 import "./About.css";
-
-import { useLocation } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
   return (
-    <div>
-      <div className="aboutuspage">
-        <div className="aboutus">
-          <h1 data-aos="fade-out" data-aos-delay="800">
-            About Us
-          </h1>
-          <p data-aos="fade-out" data-aos-delay="1300">
-            Bringing Your Vision To Life
+    <div className="dm-page">
+      {/* ===========================
+          ABOUT HERO
+      ============================ */}
+      <section className="all">
+        <div className="launch-date">
+          {" "}
+          🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026
+        </div>
+        <section className="dm-about-hero">
+          <div>
+            <p
+              className="dm-eyebrow dm-eyebrow-dark"
+              style={{ color: "#707070" }}
+            >
+              ABOUT DUALMARK KREATIVE
+            </p>
+
+            <h1>
+              Building <em>Brands</em> That Inspire, Connect & Grow.
+            </h1>
+
+            <p className="dm-about-hero-copy">
+              At DUALMARK KREATIVE, creativity is more than design—it's the
+              foundation of every meaningful brand experience. We combine
+              strategy, innovation, and craftsmanship to help businesses
+              communicate with confidence through exceptional graphic design,
+              website development, branding, premium printing, and engaging
+              video production.
+            </p>
+          </div>
+
+          <div className="dm-img-slot dm-img-slot--hero">
+            <span></span>
+          </div>
+        </section>
+
+        {/* ===========================
+          OUR STORY
+      ============================ */}
+
+        <section className="dm-story">
+          <div className="dm-story-text">
+            <p className="dm-eyebrow dm-eyebrow-dark">OUR STORY</p>
+
+            <h2>Creativity with Purpose, Excellence in Every Detail.</h2>
+
+            <p>
+              DUALMARK KREATIVE was founded with one clear vision—to help
+              businesses communicate their value through purposeful design and
+              innovative digital experiences. We believe every successful brand
+              begins with a compelling story, and our mission is to transform
+              that story into visuals and experiences that people remember.
+            </p>
+
+            <p>
+              Over the years, we have grown into a multidisciplinary creative
+              studio providing graphic design, professional branding, website
+              development, video editing, and premium printing solutions. Every
+              project is approached with creativity, precision, and a commitment
+              to delivering work that exceeds expectations.
+            </p>
+
+            <p>
+              Whether we're designing a memorable brand identity, building a
+              responsive website, creating engaging marketing materials, or
+              producing impactful visual content, our focus remains the same:
+              helping businesses grow through thoughtful design and lasting
+              impressions.
+            </p>
+
+            <p>
+              We value long-term relationships built on trust, transparency, and
+              quality. Every client becomes a creative partner, and every
+              project is an opportunity to create something remarkable that
+              delivers measurable value.
+            </p>
+          </div>
+
+          <div className="dm-story-visual">
+            <div className="dm-img-slot1 dm-img-slot--layer-back">
+              <span></span>
+            </div>
+
+            <div className="dm-img-slot2 dm-img-slot--layer-front">
+              <span></span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      {/* ===========================
+          WHAT WE BELIEVE
+      ============================ */}
+
+      <section className="dm-pillars">
+        <div className="dm-section-head">
+          <p className="dm-eyebrow dm-eyebrow-dark">WHAT WE BELIEVE</p>
+
+          <h2>The Principles That Shape Every Project</h2>
+
+          <p className="dm-section-sub">
+            Every successful project is built on a strong foundation. These
+            values guide our creativity, strengthen our partnerships, and
+            inspire us to deliver meaningful results for every client we serve.
           </p>
         </div>
-      </div>
-      <section className="aboutus1">
-        <div
-          className="aboutus1img"
-          data-aos="fade-up"
-          data-aos-delay="50"
-        ></div>
-        <div className="aboutus2" data-aos="fade-up" data-aos-delay="200">
-          <h4>Transforming Ideas Into Exceptional Brand Experiences</h4>
-          <p>
-            At Dual Mark Kreative,
-            <br /> We believe every successful brand begins with a powerful
-            idea. Our passion is turning those ideas into creative solutions
-            that inspire, engage, and leave a lasting impression. As a
-            full-service creative agency, we specialize in graphic design,
-            website development, branding, video editing, and premium printing
-            services, helping businesses of every size establish a strong and
-            memorable presence both online and offline. With creativity,
-            innovation, and attention to detail at the heart of everything we
-            do, we craft solutions that not only look exceptional but also
-            deliver meaningful results. Whether you're launching a new business,
-            building your brand identity, promoting your products, or expanding
-            your digital presence, our team is dedicated to bringing your vision
-            to life with professionalism and excellence.
-          </p>
+
+        <div className="dm-pillars-grid">
+          <article className="dm-pillar-card">
+            <span className="dm-pillar-index">01</span>
+
+            <h3>Craft</h3>
+
+            <p>
+              We believe exceptional design comes from careful planning,
+              attention to detail, and a commitment to excellence. Every
+              website, brand identity, graphic, print project, and video is
+              thoughtfully crafted to reflect quality and professionalism.
+            </p>
+          </article>
+
+          <article className="dm-pillar-card">
+            <span className="dm-pillar-index">02</span>
+
+            <h3>Partnership</h3>
+
+            <p>
+              Great work begins with collaboration. We listen carefully,
+              communicate openly, and work closely with every client to create
+              solutions that truly represent their vision and business goals.
+            </p>
+          </article>
+
+          <article className="dm-pillar-card">
+            <span className="dm-pillar-index">03</span>
+
+            <h3>Curiosity</h3>
+
+            <p>
+              Creativity never stands still. We continually explore fresh ideas,
+              modern technologies, and innovative design approaches to ensure
+              every project remains unique, impactful, and future-ready.
+            </p>
+          </article>
         </div>
       </section>
-      <p className="aboutus4" data-aos="fade-up" data-aos-delay="50">
-        We understand that every business has a unique story, and that's why we
-        take the time to understand your goals, audience, and vision before
-        creating solutions tailored specifically to your needs. From
-        eye-catching graphic designs and responsive websites to engaging video
-        content and high-quality printed materials, we ensure every project
-        reflects the quality and personality of your brand. At Dwamar's Realty,
-        we don't simply provide creative services—we build long-term
-        relationships based on trust, reliability, and outstanding customer
-        satisfaction. Our mission is to help businesses grow with confidence by
-        delivering creative work that captures attention, builds credibility,
-        and drives success. Your vision is our inspiration, and your success is
-        our greatest achievement. Together, let's create designs, experiences,
-        and brands that stand out, make an impact, and leave a lasting
-        impression.
-      </p>
+
+      {/* ===========================
+          HOW WE WORK
+      ============================ */}
+
+      <section className="dm-approach">
+        <div className="dm-section-head">
+          <p className="dm-eyebrow dm-eyebrow-light">HOW WE WORK</p>
+
+          <h2 style={{ color: "black" }}>
+            A Creative Process Built Around Your Success
+          </h2>
+
+          <p className="dm-section-sub dm-section-sub-light">
+            Every project follows a clear and collaborative process—from
+            understanding your vision to delivering polished creative solutions
+            that help your business grow with confidence.
+          </p>
+        </div>
+
+        <div className="dm-approach-visual">
+          <div className="dm-img-slot dm-img-slot--approach-a">
+            <span></span>
+          </div>
+
+          <div className="dm-img-slot dm-img-slot--approach-b">
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      {/* ===========================
+          CLOSING
+      ============================ */}
+
+      <section className="dm-closing">
+        <div className="dm-img-slot dm-img-slot--closing">
+          <span></span>
+        </div>
+
+        <div className="dm-closing-text">
+          <p className="dm-eyebrow dm-eyebrow-light">
+            LET'S BUILD SOMETHING REMARKABLE
+          </p>
+
+          <h2>
+            Your Vision Deserves a<em> Creative Partner</em>
+          </h2>
+
+          <p>
+            Whether you're launching a new business, refreshing your brand,
+            building a professional website, producing engaging video content,
+            or creating high-quality print materials, DUALMARK KREATIVE is ready
+            to help you transform your ideas into meaningful experiences that
+            inspire, connect, and grow your business.
+          </p>
+
+          <Link to="/Contact" className="dm-btn dm-btn-primary">
+            Start Your Project
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };
