@@ -82,54 +82,6 @@ body {
   font-weight: 500;
   color: #bba970;
 }
-.hero-img img {
-  opacity: 0;
-  transform: translateY(-100px);
-  animation: bounceIn 2s ease forwards;
-}
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  60% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-.hero1 h1 {
-  opacity: 0;
-  transform: translateY(-100px);
-  animation: slideDown 2s ease forwards;
-}
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.hero1 p {
-  opacity: 0;
-  transform: translateY(-100px);
-  animation: slideDown 2s ease forwards;
-}
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* <!-- call to action --> */
 
@@ -177,33 +129,7 @@ body {
   border-radius: 30px;
   gap: 5px;
 }
-.call-to-action {
-  opacity: 0;
-  transform: translateY(-100px);
-  animation: slideDown 2s ease forwards;
-}
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.callbtn,
-.callbtn2 {
-  opacity: 0;
-  transform: translateX(-100px);
-  animation: slideRight 2s ease forwards;
-}
-@keyframes slideRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+
 .callbtn:hover {
   background-color: rgb(200, 218, 245);
   color: rgb(6, 6, 48);
@@ -223,17 +149,7 @@ body {
   width: 50%;
   margin-top: 20px;
 }
-.heroicons-img img {
-  opacity: 0;
-  transform: translateX(-100px);
-  animation: slideRight 3s ease forwards;
-}
-@keyframes slideRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+
 .navb .menu-icon {
   margin-left: 5px;
   width: 20px;
