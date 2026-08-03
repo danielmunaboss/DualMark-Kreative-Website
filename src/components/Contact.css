@@ -85,6 +85,13 @@ form {
   padding-left: 50px;
   padding-right: 50px;
   flex-wrap: wrap;
+  width: 100%;
+}
+input {
+  width: 100%;
+}
+textarea {
+  width: 100%;
 }
 .name-email {
   display: flex;
