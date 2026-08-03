@@ -7,6 +7,7 @@ import {
   FaPalette,
   FaPrint,
   FaVideo,
+  FaWhatsapp,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
@@ -63,7 +64,10 @@ const Hero = () => {
                   rel="noopener noreferrer"
                 >
                   {" "}
-                  <button className="callbtn2">Get Started</button>
+                  <button className="callbtn2">
+                    <strong>Chat Us </strong>
+                    <FaWhatsapp size={15} />
+                  </button>
                 </a>
               </div>
             </div>

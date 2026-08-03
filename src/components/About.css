@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* =========================
    ROOT
@@ -17,9 +17,9 @@
   --radius: 18px;
   --shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
 
-  --display: "Fraunces", serif;
+  /* --display: "Fraunces", serif;
   --body: "Manrope", sans-serif;
-  --mono: "Space Mono", monospace;
+  --mono: "Space Mono", monospace; */
 
   --container: 1200px;
 }
@@ -39,7 +39,7 @@ html {
 }
 
 body {
-  font-family: var(--body);
+  font-family: "Poppins";
   background: rgb(216, 227, 245);
   color: var(--ink);
   overflow-x: hidden;
@@ -60,7 +60,7 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: inherit;
+  font-family: "Poppins";
 }
 
 /* =========================
@@ -87,7 +87,7 @@ button {
 }
 
 .dm-section-head h2 {
-  font-family: var(--display);
+  font-family: "Poppins";
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 18px;
@@ -99,7 +99,7 @@ button {
 }
 
 .dm-eyebrow {
-  font-family: var(--mono);
+  font-family: "Poppins";
   text-transform: uppercase;
   color: var(--brass);
   letter-spacing: 3px;
@@ -161,7 +161,7 @@ button {
 
 .dm-logo-text {
   color: #fff;
-  font-family: var(--display);
+  font-family: "Poppins";
   font-size: 1.25rem;
 }
 
@@ -216,7 +216,7 @@ button {
 }
 
 .dm-about-hero h1 {
-  font-family: var(--display);
+  font-family: "Poppins";
 
   font-size: 35px;
 
@@ -304,7 +304,7 @@ button {
 }
 
 .dm-img-slot span {
-  font-family: var(--mono);
+  font-family: "Poppins";
 
   color: #666;
 
@@ -337,7 +337,7 @@ button {
   color: #d2a94d;
 }
 .dm-story-text h2 {
-  font-family: var(--display);
+  font-family: "Poppins";
   font-size: 35px;
   margin-bottom: 25px;
   line-height: 1.2;
@@ -524,7 +524,7 @@ button {
 
   color: var(--brass);
 
-  font-family: var(--mono);
+  font-family: "Poppins";
 
   font-weight: 700;
 
@@ -532,7 +532,7 @@ button {
 }
 
 .dm-pillar-card h3 {
-  font-family: var(--display);
+  font-family: "Poppins";
 
   font-size: 1.7rem;
 
@@ -663,7 +663,7 @@ button {
 }
 
 .dm-closing-text h2 {
-  font-family: var(--display);
+  font-family: "Poppins";
 
   font-size: clamp(2.2rem, 5vw, 3.6rem);
 
@@ -738,6 +738,9 @@ button {
     transform: translateX(50%);
     bottom: 0;
   }
+  .dm-img-slot1 {
+    width: 400px;
+  }
 }
 
 /* ============================= */
@@ -778,6 +781,9 @@ button {
 
   .dm-closing-text {
     padding: 60px 25px 0;
+  }
+  .dm-img-slot1 {
+    width: 350px;
   }
 }
 
