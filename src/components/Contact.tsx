@@ -26,8 +26,17 @@ const Contact = () => {
           "service_5woqrx9",
           "template_nge34bf",
           form.current!,
-          "C9s5TsnSNsIH_EaWs",
+          "wbeou1-X3BZwxO6IS",
         )
+
+        .then(() => {
+          emailjs.sendForm(
+            "service_5woqrx9",
+            "template_9wn1o5p",
+            form.current!,
+            "wbeou1-X3BZwxO6IS",
+          );
+        })
         .then(() => {
           toast.success("✅ Message sent successfully!");
           form.current?.reset();
