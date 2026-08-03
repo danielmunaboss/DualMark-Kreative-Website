@@ -570,6 +570,9 @@ button {
 
   min-height: 520px;
 }
+.dm-section-head p {
+  color: black;
+}
 
 .dm-img-slot--approach-a {
   position: absolute;
