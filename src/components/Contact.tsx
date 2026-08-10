@@ -1,18 +1,16 @@
 import "./Contact.css";
 import { useLocation } from "react-router-dom";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
-import contactimg from "../assets/images/contactus.png";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
-import { useState } from "react";
 import { toast } from "react-toastify";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const form = useRef<HTMLFormElement>(null);
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -28,7 +26,6 @@ const Contact = () => {
           form.current!,
           "wbeou1-X3BZwxO6IS",
         )
-
         .then(() => {
           emailjs.sendForm(
             "service_5woqrx9",
@@ -50,6 +47,7 @@ const Contact = () => {
         });
     }, 3000);
   };
+
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -63,86 +61,129 @@ const Contact = () => {
   }, []);
 
   return (
-    <div>
+    <div className="contact-page-wrapper">
       <div className="launch-date">
         {" "}
         🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026
       </div>
-      {/* <!-- ===================== CONTACT ===================== --> */}
-      <section className="dm-contact" id="contact">
-        <div className="dm-container-dm-contact-wrapper">
-          {/* <!-- Contact Info --> */}
-          <div className="dm-contact-info">
-            <p className="dm-eyebrow" data-aos="fade-up" data-aos-delay="50">
-              Contact
+
+      <section className="dm-contact-section">
+        <div className="dm-contact-container">
+          
+          {/* Left Column - Contact Information */}
+          <div className="dm-contact-info-panel" data-aos="fade-right" data-aos-delay="50">
+            <div className="dm-contact-badge">
+              <span className="dm-badge-dot"></span>
+              <span>GET IN TOUCH</span>
+            </div>
+            
+            <h2>Let's build something remarkable together.</h2>
+            <p className="dm-contact-intro-text">
+              Have a project in mind or want to explore creative solutions? Fill out the form or chat with us directly. We are ready to bring your vision to life.
             </p>
 
-            <h2 data-aos="fade-up" data-aos-delay="50">
-              Let's create something remarkable.
-            </h2>
+            <div className="dm-contact-details">
+              <div className="dm-contact-item">
+                <div className="dm-contact-icon">
+                  <FaPhoneAlt size={16} />
+                </div>
+                <div>
+                  <h4>Phone Number</h4>
+                  <p>+234 704 457 2371</p>
+                </div>
+              </div>
+
+              <div className="dm-contact-item">
+                <div className="dm-contact-icon">
+                  <FaEnvelope size={16} />
+                </div>
+                <div>
+                  <h4>Email Address</h4>
+                  <p>abrahamdanielmunachi@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="dm-contact-item">
+                <div className="dm-contact-icon">
+                  <FaMapMarkerAlt size={16} />
+                </div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Nigeria</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="dm-contact-socials-box">
+              <h4>Direct Channels</h4>
+              <div className="dm-contact-socials-row">
+                <a
+                  href="https://wa.me/2347044572371"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dm-social-btn whatsapp-btn"
+                >
+                  <FaWhatsapp size={20} />
+                  <span>WhatsApp Chat</span>
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dm-social-btn instagram-btn"
+                >
+                  <FaInstagram size={20} />
+                  <span>Instagram</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* <!-- Contact Form --> */}
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            className="dm-contact-form"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            <input type="text" name="name" placeholder="Full Name" required />
+          {/* Right Column - Contact Form */}
+          <div className="dm-contact-form-panel" data-aos="fade-left" data-aos-delay="150">
+            <h3>Send Us a Message</h3>
+            
+            <form ref={form} onSubmit={sendEmail} className="dm-contact-form">
+              <div className="dm-form-group">
+                <label className="dm-form-label">Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required />
+              </div>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              required
-            />
+              <div className="dm-form-group">
+                <label className="dm-form-label">Email Address</label>
+                <input type="email" name="email" placeholder="johndoe@example.com" required />
+              </div>
 
-            <input type="text" name="title" placeholder="Subject" required />
-            <input
-              type="tel"
-              name="whatsapp"
-              placeholder="Whatsapp Number"
-              required
-            />
+              <div className="dm-form-group">
+                <label className="dm-form-label">Subject</label>
+                <input type="text" name="title" placeholder="How can we help?" required />
+              </div>
 
-            <textarea
-              rows={6}
-              placeholder="Tell us about your project..."
-              name="message"
-              required
-            ></textarea>
+              <div className="dm-form-group">
+                <label className="dm-form-label">WhatsApp Number</label>
+                <input type="tel" name="whatsapp" placeholder="+234..." required />
+              </div>
 
-            <button
-              type="submit"
-              className="dm-btn-dm-btn-primary"
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
+              <div className="dm-form-group">
+                <label className="dm-form-label">Message Details</label>
+                <textarea
+                  rows={5}
+                  placeholder="Tell us about your project, goals, and any specific requirements..."
+                  name="message"
+                  required
+                ></textarea>
+              </div>
 
-            <div className="or">
-              <p>Or Chat Us Directly On</p>
-            </div>
-            <div className="icon-conta">
-              <a
-                href="https://wa.me/2347044572371"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="submit"
+                className="dm-contact-submit-btn"
+                disabled={loading}
               >
-                {" "}
-                <FaWhatsapp size={25} className="whatsapp" />{" "}
-              </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
-                {" "}
-                <FaInstagram size={25} className="facebook" />
-              </a>
-            </div>
-          </form>
-        </div>
-        <div className="contactimg">
-          <img src={contactimg} />
+                {loading ? "Sending Message..." : "Send Message"}
+              </button>
+            </form>
+          </div>
+
         </div>
       </section>
     </div>

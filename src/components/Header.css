@@ -1,209 +1,360 @@
-.navlogo img {
-  width: 150px;
-  height: 48px;
+/* ================================================================= */
+/* NAVIGATION HEADER                                                 */
+/* ================================================================= */
+
+.nav-header {
+  position: sticky;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  background: rgba(6, 6, 48, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200, 218, 245, 0.1);
+  z-index: 9999;
+  transition: background 0.3s ease;
 }
-.navlogo {
+
+.nav-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(6, 6, 48);
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 40px;
-  padding-right: 40px;
+  gap: 16px;
 }
 
-.navul {
+/* ---- Logo ---- */
+.nav-logo-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.navlogo ul li {
-  list-style: none;
-  padding: 0 10px;
-}
-.navlogo ul li a {
-  color: white;
+  flex-shrink: 0;
   text-decoration: none;
-  font-size: 11px;
-  font-weight: 400;
-  position: relative;
 }
-.navlogo ul li a.homeline::after {
-  content: "";
-  width: 100%;
-  height: 3px;
-  left: 0;
-  background-color: rgb(200, 218, 245);
+
+.nav-logo-img {
+  width: 140px;
+  height: auto;
+  max-height: 44px;
+  object-fit: contain;
   display: block;
-  position: absolute;
-  border-radius: 20px;
 }
-.navul li::after {
+
+/* ---- Desktop Nav Menu ---- */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
   content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 0;
   height: 2px;
-
   background-color: rgb(200, 218, 245);
-  display: block;
-  margin: auto;
-  transition: 0.5s;
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
-.navul li:hover::after {
+
+.nav-link:hover {
+  color: rgb(200, 218, 245);
+}
+
+.nav-link:hover::after,
+.nav-link--active::after {
   width: 100%;
 }
-.navb {
-  display: flex;
-  gap: 10px;
+
+.nav-link--active {
+  color: rgb(200, 218, 245);
+  font-weight: 600;
 }
 
-.menu-icon11 {
-  margin-top: 2px;
+/* ---- Desktop Action Buttons ---- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
-.navbtn {
-  padding: 5px 25px;
-  padding-top: 10px;
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-btn--ghost {
   color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   background: transparent;
-  border: solid white 1.5px;
-  border-radius: 10px;
 }
-.navbtn2 {
-  padding: 5px 25px;
-  padding-top: 10px;
+
+.nav-btn--ghost:hover {
+  background: white;
+  color: rgb(6, 6, 48);
+  border-color: white;
+}
+
+.nav-btn--solid {
   color: rgb(6, 6, 48);
   background: rgb(200, 218, 245);
-  border: solid rgb(200, 218, 245) 1.5px;
-  border-radius: 10px;
+  border: 1.5px solid rgb(200, 218, 245);
 }
-.navbtn2:hover {
-  background-color: transparent;
+
+.nav-btn--solid:hover {
+  background: transparent;
   color: white;
-  transition: 1s;
+  border-color: white;
 }
-.navbtn:hover {
-  background-color: white;
-  color: rgb(6, 6, 48);
-  transition: 1s;
-  border: none;
+
+/* ---- Hamburger (hidden on desktop) ---- */
+.nav-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
-@media only screen and (max-width: 768px) {
-  .navul {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 70px);
 
+.nav-hamburger:hover {
+  border-color: rgb(200, 218, 245);
+  color: rgb(200, 218, 245);
+}
+
+/* Mobile-only CTA row (hidden on desktop) */
+.nav-mobile-cta {
+  display: none;
+}
+
+/* ---- Backdrop overlay ---- */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 9998;
+  cursor: pointer;
+}
+
+/* ================================================================= */
+/* RESPONSIVE — TABLET / MOBILE (≤ 992px)                            */
+/* ================================================================= */
+
+@media only screen and (max-width: 992px) {
+  .nav-inner {
+    padding: 12px 24px;
+  }
+
+  .nav-logo-img {
+    width: 120px;
+    max-height: 38px;
+  }
+
+  /* Show hamburger toggle */
+  .nav-hamburger {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 18px;
-
-    padding: 35px 20px;
-
-    background: rgb(6, 6, 48);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    transform: translateY(-120%);
-    opacity: 0;
-    visibility: hidden;
-
-    transition: all 0.4s ease;
-
-    z-index: 9999;
+    z-index: 10000;
   }
 
-  .navul.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .navul li {
-    width: 100%;
-    list-style: none;
-  }
-
-  .navul li a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    padding: 16px;
-
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.06);
-
-    transition: 0.3s ease;
-  }
-
-  .navul li a:hover,
-  .navul li a.active {
-    background: rgb(200, 218, 245);
-    color: #fff;
-    transform: translateX(8px);
-  }
-  .navul li::after {
+  /* Hide desktop action buttons */
+  .nav-btn {
     display: none;
   }
 
-  .navlogo img {
-    width: 100px;
-    height: 32px;
+  /* Slide-in drawer container */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(280px, 85vw);
+    height: 100dvh;
+    background: rgb(6, 6, 48);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.45);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 90px 24px 40px 24px;
+    gap: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s linear 0.38s;
+    z-index: 9999;
+    will-change: transform;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  .navb .menu-icon {
-    margin-left: 5px;
-    cursor: pointer;
-    margin-top: 3px;
-  }
-  .navbtn {
-    padding: 3px 18px;
-    font-weight: 500;
-    color: white;
-    background: transparent;
-    border: solid white 1.5px;
-    border-radius: 10px;
-    font-size: 8px;
-  }
-  .navbtn2 {
-    padding: 3px 18px;
-    font-weight: 500;
 
-    border-radius: 10px;
-    font-size: 8px;
+  .nav-menu--open {
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0s linear 0s;
   }
-  .navb .menu-icon {
-    display: block;
-    cursor: pointer;
+
+  /* Nav Links List inside Drawer */
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 6px;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s ease;
+  }
+
+  /* Remove underline from mobile links */
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link:hover {
+    background: rgba(200, 218, 245, 0.08);
+    color: rgb(200, 218, 245);
+    padding-left: 20px;
+  }
+
+  .nav-link--active {
+    background: rgba(187, 169, 112, 0.15);
+    color: #bba970;
+    font-weight: 600;
+  }
+
+  .nav-link--active:hover {
+    background: rgba(187, 169, 112, 0.2);
+    color: #e2c766;
+    padding-left: 20px;
+  }
+
+  /* Mobile bottom actions */
+  .nav-mobile-cta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-cta-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .nav-cta-pill--solid {
+    background: #bba970;
+    color: rgb(6, 6, 48);
+  }
+
+  .nav-cta-pill--solid:hover {
+    background: rgb(200, 218, 245);
+  }
+
+  .nav-cta-pill--ghost {
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .nav-cta-pill--ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
   }
 }
-@media only screen and (max-width: 360px) {
-  .navbtn {
-    padding: 4px 20px;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: solid white 1.5px;
-    border-radius: 10px;
-    font-size: 7px;
+
+/* ================================================================= */
+/* RESPONSIVE — SMALL MOBILE (≤ 480px)                               */
+/* ================================================================= */
+
+@media only screen and (max-width: 480px) {
+  .nav-inner {
+    padding: 10px 16px;
   }
-  .navbtn2 {
-    padding: 4px 15px;
-    font-weight: 400;
-    color: white;
-    background: transparent;
-    border: solid rgb(200, 218, 245) 1.5px;
-    border-radius: 10px;
-    font-size: 7px;
+
+  .nav-logo-img {
+    width: 100px;
+    max-height: 32px;
+  }
+
+  .nav-menu {
+    width: 100vw;
+    padding: 80px 18px 30px 18px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 11px 14px;
+  }
+
+  .nav-cta-pill {
+    font-size: 13px;
+    padding: 11px 16px;
   }
 }

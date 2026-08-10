@@ -1,7 +1,18 @@
 import "./About.css";
 import { Link } from "react-router-dom";
+import { FaFeatherAlt, FaHandshake, FaLightbulb, FaArrowRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="dm-page">
       {/* ===========================
@@ -13,24 +24,20 @@ const About = () => {
           🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026
         </div>
         <section className="dm-about-hero">
-          <div>
-            <p
-              className="dm-eyebrow dm-eyebrow-dark"
-              style={{ color: "#707070" }}
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
-              ABOUT DUALMARK KREATIVE
-            </p>
+          <div className="dm-about-hero-content">
+            <div className="dm-about-badge" data-aos="fade-down" data-aos-delay="50">
+              <span className="dm-badge-dot"></span>
+              <span>ABOUT DUALMARK KREATIVE</span>
+            </div>
 
-            <h1 data-aos="fade-up" data-aos-delay="50">
-              Building <em>Brands</em> That Inspire, Connect & Grow.
+            <h1 data-aos="fade-up" data-aos-delay="100">
+              Building <span className="about-accent">Brands</span> That Inspire, Connect & Grow.
             </h1>
 
             <p
               className="dm-about-hero-copy"
               data-aos="fade-up"
-              data-aos-delay="50"
+              data-aos-delay="150"
             >
               At DUALMARK KREATIVE, creativity is more than design—it's the
               foundation of every meaningful brand experience. We combine
@@ -43,8 +50,8 @@ const About = () => {
 
           <div
             className="dm-img-slot dm-img-slot--hero"
-            data-aos="fade-up"
-            data-aos-delay="50"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <span></span>
           </div>
@@ -55,20 +62,15 @@ const About = () => {
       ============================ */}
 
         <section className="dm-story">
-          <div className="dm-story-text">
-            <p
-              className="dm-eyebrow dm-eyebrow-dark"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
-              OUR STORY
-            </p>
+          <div className="dm-story-text" data-aos="fade-right" data-aos-delay="100">
+            <div className="dm-about-badge">
+              <span className="dm-badge-dot"></span>
+              <span>OUR STORY</span>
+            </div>
 
-            <h2 data-aos="fade-up" data-aos-delay="50">
-              Creativity with Purpose, Excellence in Every Detail.
-            </h2>
+            <h2>Creativity with Purpose, Excellence in Every Detail.</h2>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               DUALMARK KREATIVE was founded with one clear vision—to help
               businesses communicate their value through purposeful design and
               innovative digital experiences. We believe every successful brand
@@ -76,7 +78,7 @@ const About = () => {
               that story into visuals and experiences that people remember.
             </p>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               Over the years, we have grown into a multidisciplinary creative
               studio providing graphic design, professional branding, website
               development, video editing, and premium printing solutions. Every
@@ -84,7 +86,7 @@ const About = () => {
               to delivering work that exceeds expectations.
             </p>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               Whether we're designing a memorable brand identity, building a
               responsive website, creating engaging marketing materials, or
               producing impactful visual content, our focus remains the same:
@@ -92,7 +94,7 @@ const About = () => {
               impressions.
             </p>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               We value long-term relationships built on trust, transparency, and
               quality. Every client becomes a creative partner, and every
               project is an opportunity to create something remarkable that
@@ -100,20 +102,12 @@ const About = () => {
             </p>
           </div>
 
-          <div className="dm-story-visual">
-            <div
-              className="dm-img-slot1 dm-img-slot--layer-back"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
+          <div className="dm-story-visual" data-aos="fade-left" data-aos-delay="200">
+            <div className="dm-img-slot1 dm-img-slot--layer-back">
               <span></span>
             </div>
 
-            <div
-              className="dm-img-slot2 dm-img-slot--layer-front"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
+            <div className="dm-img-slot2 dm-img-slot--layer-front">
               <span></span>
             </div>
           </div>
@@ -125,20 +119,15 @@ const About = () => {
       ============================ */}
 
       <section className="dm-pillars">
-        <div className="dm-section-head">
-          <p
-            className="dm-eyebrow dm-eyebrow-dark"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            WHAT WE BELIEVE
-          </p>
+        <div className="dm-section-head" data-aos="fade-up">
+          <div className="dm-about-badge dm-about-badge--centered">
+            <span className="dm-badge-dot"></span>
+            <span>WHAT WE BELIEVE</span>
+          </div>
 
-          <h2 data-aos="fade-up" data-aos-delay="50">
-            The Principles That Shape Every Project
-          </h2>
+          <h2>The Principles That Shape Every Project</h2>
 
-          <p className="dm-section-sub" data-aos="fade-up" data-aos-delay="50">
+          <p className="dm-section-sub">
             Every successful project is built on a strong foundation. These
             values guide our creativity, strengthen our partnerships, and
             inspire us to deliver meaningful results for every client we serve.
@@ -146,20 +135,17 @@ const About = () => {
         </div>
 
         <div className="dm-pillars-grid">
-          <article className="dm-pillar-card">
-            <span
-              className="dm-pillar-index"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
-              01
-            </span>
+          <article className="dm-pillar-card" data-aos="fade-up" data-aos-delay="50">
+            <div className="dm-pillar-card-header">
+              <div className="dm-pillar-icon-wrapper">
+                <FaFeatherAlt size={20} />
+              </div>
+              <span className="dm-pillar-index">01</span>
+            </div>
 
-            <h3 data-aos="fade-up" data-aos-delay="50">
-              Craft
-            </h3>
+            <h3>Craft</h3>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               We believe exceptional design comes from careful planning,
               attention to detail, and a commitment to excellence. Every
               website, brand identity, graphic, print project, and video is
@@ -167,40 +153,34 @@ const About = () => {
             </p>
           </article>
 
-          <article className="dm-pillar-card">
-            <span
-              className="dm-pillar-index"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
-              02
-            </span>
+          <article className="dm-pillar-card" data-aos="fade-up" data-aos-delay="150">
+            <div className="dm-pillar-card-header">
+              <div className="dm-pillar-icon-wrapper">
+                <FaHandshake size={20} />
+              </div>
+              <span className="dm-pillar-index">02</span>
+            </div>
 
-            <h3 data-aos="fade-up" data-aos-delay="50">
-              Partnership
-            </h3>
+            <h3>Partnership</h3>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               Great work begins with collaboration. We listen carefully,
               communicate openly, and work closely with every client to create
               solutions that truly represent their vision and business goals.
             </p>
           </article>
 
-          <article className="dm-pillar-card">
-            <span
-              className="dm-pillar-index"
-              data-aos="fade-up"
-              data-aos-delay="50"
-            >
-              03
-            </span>
+          <article className="dm-pillar-card" data-aos="fade-up" data-aos-delay="250">
+            <div className="dm-pillar-card-header">
+              <div className="dm-pillar-icon-wrapper">
+                <FaLightbulb size={20} />
+              </div>
+              <span className="dm-pillar-index">03</span>
+            </div>
 
-            <h3 data-aos="fade-up" data-aos-delay="50">
-              Curiosity
-            </h3>
+            <h3>Curiosity</h3>
 
-            <p data-aos="fade-up" data-aos-delay="50">
+            <p>
               Creativity never stands still. We continually explore fresh ideas,
               modern technologies, and innovative design approaches to ensure
               every project remains unique, impactful, and future-ready.
@@ -214,44 +194,27 @@ const About = () => {
       ============================ */}
 
       <section className="dm-approach">
-        <div className="dm-section-head">
-          <p
-            className="dm-eyebrow dm-eyebrow-light"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            HOW WE WORK
-          </p>
+        <div className="dm-section-head" data-aos="fade-up">
+          <div className="dm-about-badge dm-about-badge--centered">
+            <span className="dm-badge-dot"></span>
+            <span>HOW WE WORK</span>
+          </div>
 
-          <h2 style={{ color: "black" }} data-aos="fade-up" data-aos-delay="50">
-            A Creative Process Built Around Your Success
-          </h2>
+          <h2>A Creative Process Built Around Your Success</h2>
 
-          <p
-            className="dm-section-sub dm-section-sub-light"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
+          <p className="dm-section-sub dm-section-sub-light">
             Every project follows a clear and collaborative process—from
             understanding your vision to delivering polished creative solutions
             that help your business grow with confidence.
           </p>
         </div>
 
-        <div className="dm-approach-visual">
-          <div
-            className="dm-img-slot dm-img-slot--approach-a"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
+        <div className="dm-approach-visual" data-aos="zoom-in" data-aos-delay="100">
+          <div className="dm-img-slot dm-img-slot--approach-a">
             <span></span>
           </div>
 
-          <div
-            className="dm-img-slot dm-img-slot--approach-b"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
+          <div className="dm-img-slot dm-img-slot--approach-b">
             <span></span>
           </div>
         </div>
@@ -264,26 +227,23 @@ const About = () => {
       <section className="dm-closing">
         <div
           className="dm-img-slot dm-img-slot--closing"
-          data-aos="fade-up"
+          data-aos="fade-in"
           data-aos-delay="50"
         >
           <span></span>
         </div>
 
-        <div className="dm-closing-text">
-          <p
-            className="dm-eyebrow dm-eyebrow-light"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            LET'S BUILD SOMETHING REMARKABLE
-          </p>
+        <div className="dm-closing-text" data-aos="fade-up" data-aos-delay="100">
+          <div className="dm-about-badge dm-about-badge--centered">
+            <span className="dm-badge-dot"></span>
+            <span>LET'S BUILD SOMETHING REMARKABLE</span>
+          </div>
 
-          <h2 data-aos="fade-up" data-aos-delay="50">
-            Your Vision Deserves a<em> Creative Partner</em>
+          <h2>
+            Your Vision Deserves a <span className="about-accent-gold">Creative Partner</span>
           </h2>
 
-          <p data-aos="fade-up" data-aos-delay="50">
+          <p>
             Whether you're launching a new business, refreshing your brand,
             building a professional website, producing engaging video content,
             or creating high-quality print materials, DUALMARK KREATIVE is ready
@@ -291,13 +251,8 @@ const About = () => {
             inspire, connect, and grow your business.
           </p>
 
-          <Link
-            to="/Contact"
-            className="dm-btn dm-btn-primary"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            Start Your Project
+          <Link to="/Contact" className="dm-btn dm-btn-primary">
+            Start Your Project <FaArrowRight size={13} style={{ marginLeft: "8px" }} />
           </Link>
         </div>
       </section>

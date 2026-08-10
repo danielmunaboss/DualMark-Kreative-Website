@@ -2,7 +2,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import {
   FaPhoneAlt,
-  FaMapMarkedAlt,
+  FaMapMarkerAlt,
   FaEnvelope,
   FaFacebookF,
   FaLinkedinIn,
@@ -11,107 +11,111 @@ import {
   FaWhatsapp,
   FaGithub,
 } from "react-icons/fa";
-import footerlogo from "../assets/images/footerlogo.png";
+import dmklogo from "../assets/images/DMK LOGO DUAL MARK KREATIVE2.png";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer">
-        <div className="footer1">
-          <Link to="/">
-            <div>
-              <img src={footerlogo} />
-            </div>
-          </Link>
-          <div>
-            <h5>
-              +234-704-457-2371 <p>dmk@gmail.com</p>
-            </h5>
-          </div>
-        </div>
-        <div className="footer2">
-          <div className="footer3">
-            <h2>DUAL MARK KREATIVE</h2>
-            <p>
-              We transform creative ideas into powerful visual experiences. Our
-              solutions help businesses build strong, memorable brands. Through
-              creativity and innovation, we help your business stand out and
-              grow.
-            </p>
-          </div>
-          <div className="footer4">
-            <h2>QUIK LINK</h2>
-            <ul className="footer-ul">
-              <li>
-                <Link to="/" className="footer-link">
-                  HOME
-                </Link>
-              </li>
-              <li>
-                <Link to="/About">ABOUT</Link>
-              </li>
-              <li>
-                <Link to="">PRODUCTS</Link>
-              </li>
-              <li>
-                <Link to="/Contact">CONTACT</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="footer5">
-            <h2>CONTACT</h2>
-            <p className="footerp">
-              <FaPhoneAlt size={10} />
-              <small>+234-704-457-2371</small>
-            </p>
-            <p className="footerp">
-              <FaEnvelope size={10} /> <small>dmk@gmail.com</small>
-            </p>
-            <p className="footerp">
-              <FaMapMarkedAlt size={10} /> <small>OWERRI, IMO STATE</small>
-            </p>
-            <div className="footer-icons">
-              {" "}
-              <a
-                href="https://www.facebook.com/share/19Ad45EhXF/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebookF size={15} className="footer-icons1" />
-              </a>
-              <Link to="">
-                <FaLinkedinIn size={15} className="footer-icons1" />
-              </Link>
-              <Link to="">
-                <FaTwitter size={15} className="footer-icons1" />
-              </Link>
-              <Link to="">
-                <FaInstagram size={15} className="footer-icons1" />
-              </Link>
-              <a
-                href="https://wa.me/2347044572371"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp size={15} className="footer-icons1" />
-              </a>
-              <a
-                href="https://github.com/danielmunaboss"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub size={15} className="footer-icons1" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <hr className="footer-hr" />
+    <footer className="footer-main">
+      <div className="footer-container">
 
-        <small className="footer-copyright">
-          &copy; 2026 DUAL MARK KREATIVE. All Rights Reserved
-        </small>
-      </footer>
-    </div>
+        {/* Column 1 - Brand Info */}
+        <div className="footer-col brand-col">
+          <Link to="/" className="footer-logo-link">
+            <img src={dmklogo} alt="Dualmark Kreative Logo" className="footer-logo-img" />
+          </Link>
+          <p className="brand-desc">
+            We transform creative ideas into powerful visual experiences. Our
+            solutions help businesses build strong, memorable brands through
+            thoughtful design, premium print, and modern digital development.
+          </p>
+          <div className="footer-social-row">
+            <a
+              href="https://www.facebook.com/share/19Ad45EhXF/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="Facebook"
+            >
+              <FaFacebookF size={14} />
+            </a>
+            <a
+              href="https://wa.me/2347044572371"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp size={14} />
+            </a>
+            <a
+              href="https://github.com/danielmunaboss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="GitHub"
+            >
+              <FaGithub size={14} />
+            </a>
+            <Link to="" className="footer-social-icon" aria-label="Instagram">
+              <FaInstagram size={14} />
+            </Link>
+            <Link to="" className="footer-social-icon" aria-label="Twitter">
+              <FaTwitter size={14} />
+            </Link>
+            <Link to="" className="footer-social-icon" aria-label="LinkedIn">
+              <FaLinkedinIn size={14} />
+            </Link>
+          </div>
+        </div>
+
+        {/* Column 2 - Quick Links */}
+        <div className="footer-col links-col">
+          <h3>Quick Links</h3>
+          <ul className="footer-links-list">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/About">About Us</Link>
+            </li>
+            <li>
+              <Link to="/Product">Products</Link>
+            </li>
+            <li>
+              <Link to="/Contact">Contact</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Column 3 - Contact Details */}
+        <div className="footer-col contact-col">
+          <h3>Contact Info</h3>
+          <ul className="footer-contact-list">
+            <li>
+              <FaPhoneAlt size={12} className="footer-icon-accent" />
+              <a href="tel:+2347044572371">+234 704 457 2371</a>
+            </li>
+            <li>
+              <FaEnvelope size={12} className="footer-icon-accent" />
+              <a href="mailto:dmk@gmail.com">dmk@gmail.com</a>
+            </li>
+            <li>
+              <FaMapMarkerAlt size={12} className="footer-icon-accent" />
+              <span>Owerri, Imo State, Nigeria</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div className="footer-bottom">
+        <div className="footer-bottom-inner">
+          <p className="copyright-text">
+            &copy; 2026 DUAL MARK KREATIVE. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
