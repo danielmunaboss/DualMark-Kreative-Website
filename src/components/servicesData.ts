@@ -145,6 +145,22 @@ export const servicesData: ServiceItem[] = [
     turnaround: "1-2 Days"
   },
   {
+    id: "print-business-card",
+    name: "Business Card Printing",
+    category: "printing",
+    shortDesc: "Premium double-sided executive business card printing on heavy 350gsm card stock.",
+    fullDesc: "Make an unforgettable impression with high-grade business card printing. Features options for matte or gloss lamination, spot UV, velvet soft-touch finish, and rounded corners.",
+    price: "₦15,000",
+    isStartingPrice: true,
+    specification: "Pack of 100 Pcs | 350gsm Premium Stock | Double-Sided",
+    features: ["Heavy 350gsm Premium Card Stock", "Matte, Gloss or Soft-Touch Laminate", "Spot UV & Gold Foil Options", "Fast 24-48 Hour Turnaround"],
+    imageUrl: businessCardImages[0] ?? "",
+    cardImages: pick(businessCardImages, 0, 1, 2),
+    galleryImages: businessCardImages,
+    badge: "Essential",
+    turnaround: "24-48 Hours"
+  },
+  {
     id: "print-picture-frame",
     name: "Photo & Wall Frame",
     category: "printing",
@@ -636,19 +652,20 @@ export const servicesData: ServiceItem[] = [
     turnaround: "24-48 Hours"
   },
   {
-    id: "design-burial-flyer",
-    name: "Burial & Funeral Flyer Design",
+    id: "design-commercial-flyer",
+    name: "Company & Commercial Flyer Design",
     category: "design",
-    shortDesc: "Tastefully designed memorial e-flyers and tribute announcements for social media.",
-    fullDesc: "Dignified and respectful funeral announcement flyer designs featuring custom photo retouching, memorial verses, and event schedules.",
-    price: "₦8,000",
+    shortDesc: "High-impact commercial and corporate flyer designs tailored for marketing, promotions, and brand campaigns.",
+    fullDesc: "Professional commercial and company flyer designs crafted for products, corporate events, sales campaigns, and trade shows. Delivered in high-resolution print PDF and digital formats.",
+    price: "₦10,000",
     isStartingPrice: true,
     specification: "HD Digital Artwork | High Res JPG & PDF",
-    features: ["Express 24-Hour Delivery", "Photo Retouching & Cutout", "Optimized for WhatsApp & Instagram", "Print-Ready File Option"],
+    features: ["Express 24-48 Hour Delivery", "Corporate & Commercial Layouts", "Optimized for Print & Social Media", "Print-Ready PDF & Source Files"],
     imageUrl: graphicsDesignImages[3] ?? graphicsDesignImages[0] ?? "",
     cardImages: pick(graphicsDesignImages, 3, 4, 5),
     galleryImages: graphicsDesignImages,
-    turnaround: "24 Hours"
+    badge: "Popular",
+    turnaround: "24-48 Hours"
   },
   {
     id: "design-church-flyer",
@@ -680,21 +697,6 @@ export const servicesData: ServiceItem[] = [
     cardImages: pick(graphicsDesignImages, 2, 1, 4),
     galleryImages: graphicsDesignImages,
     turnaround: "24 Hours"
-  },
-  {
-    id: "design-business-card",
-    name: "Luxury Business Card Design",
-    category: "design",
-    shortDesc: "Modern double-sided business card layout with spot UV, foil stamping, and QR code integration.",
-    fullDesc: "Make a powerful first impression with custom executive business card artwork. Includes print-ready CMYK files with bleed guidelines and digital QR contact card setup.",
-    price: "₦12,000",
-    isStartingPrice: true,
-    specification: "2 Design Concepts | Double Sided | Vector PDF",
-    features: ["Spot UV & Gold Foil Layer Prep", "Interactive vCard QR Code", "Standard & Square Card Specs", "Editable Vector Source Files"],
-    imageUrl: businessCardImages[0] ?? "",
-    cardImages: pick(businessCardImages, 0, 1, 2),
-    galleryImages: businessCardImages,
-    turnaround: "1-2 Days"
   },
 
   // ==========================================
