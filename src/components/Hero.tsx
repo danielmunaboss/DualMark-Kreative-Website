@@ -52,7 +52,7 @@ const Hero = () => {
       >
         <div className="launch-date">
           {" "}
-          🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026
+          🎊🎁OFFICIALLY LAUNCHING • OCTOBER 15, 2026.
         </div>
         {/* Background slideshow layers */}
         <div className="bg-slide-3"></div>
