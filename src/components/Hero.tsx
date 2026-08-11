@@ -12,7 +12,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import heroicons from "../assets/images/heroicons.png";
 import heroimg from "../assets/images/heroimg.png";
@@ -28,6 +28,7 @@ import contactimg from "../assets/images/contactus.png";
 
 const Hero = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -157,6 +158,8 @@ const Hero = () => {
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="50"
+            onClick={() => navigate("/Product?category=branding")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -174,16 +177,18 @@ const Hero = () => {
               <span>Visual Identity</span>
               <span>Brand Guide</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=branding" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
 
           <article
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="100"
+            onClick={() => navigate("/Product?category=design")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -201,16 +206,18 @@ const Hero = () => {
               <span>Social Media</span>
               <span>Ad Creatives</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=design" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
 
           <article
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="150"
+            onClick={() => navigate("/Product?category=video")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -228,16 +235,18 @@ const Hero = () => {
               <span>Promo Videos</span>
               <span>Reels & Ads</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=video" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
 
           <article
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="200"
+            onClick={() => navigate("/Product?category=web")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -255,16 +264,18 @@ const Hero = () => {
               <span>UI/UX Design</span>
               <span>SEO Optimized</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=web" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
 
           <article
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="250"
+            onClick={() => navigate("/Product?category=printing")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -282,16 +293,18 @@ const Hero = () => {
               <span>Large Format</span>
               <span>Packaging</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=printing" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
 
           <article
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="300"
+            onClick={() => navigate("/Product?category=marketing")}
+            style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
@@ -309,10 +322,10 @@ const Hero = () => {
               <span>Ad Campaigns</span>
               <span>Growth Hacking</span>
             </div>
-            <div className="dm-service-link">
+            <Link to="/Product?category=marketing" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
               <span>Explore Solution</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
-            </div>
+            </Link>
           </article>
         </div>
       </section>

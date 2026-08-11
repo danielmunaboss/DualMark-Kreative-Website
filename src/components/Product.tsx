@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import "./Product.css";
 import { servicesData, categoryList, type ServiceItem } from "./servicesData";
 import CardSlideshow from "./CardSlideshow";
@@ -25,10 +26,18 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Product: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState<string>(categoryParam || "all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [galleryService, setGalleryService] = useState<ServiceItem | null>(null);
+
+  useEffect(() => {
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [categoryParam]);
 
   useEffect(() => {
     AOS.init({

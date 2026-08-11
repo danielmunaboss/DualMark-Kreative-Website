@@ -831,6 +831,7 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: #14140f;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
