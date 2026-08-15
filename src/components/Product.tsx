@@ -20,7 +20,8 @@ import {
   FaPlay,
   FaClock,
   FaInfoCircle,
-  FaSlidersH
+  FaSlidersH,
+  FaDownload
 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -79,8 +80,8 @@ const Product: React.FC = () => {
     }
   };
 
-  const getWhatsAppLink = (serviceName: string, price: string) => {
-    const text = `Hi Dualmark Kreative! I am interested in ordering your "${serviceName}" service (${price}). Please provide me with more details.`;
+  const getWhatsAppLink = (serviceName: string) => {
+    const text = `Hi Dualmark Kreative! I’d like to discuss a project for your “${serviceName}” service. Please provide me with a custom quote based on my requirements.`;
     return `https://wa.me/2347044572371?text=${encodeURIComponent(text)}`;
   };
 
@@ -189,14 +190,57 @@ const Product: React.FC = () => {
                   data-aos="fade-up"
                   data-aos-delay={(index % 4) * 60}
                 >
-                  {/* CARD IMAGE CONTAINER — now a 3-image slideshow */}
+                  {/* CARD IMAGE CONTAINER */}
                   <div className="card-image-wrap">
-                    <CardSlideshow
-                      images={service.cardImages}
-                      alt={service.name}
-                      intervalMs={3000}
-                    />
-                    <div className="card-image-overlay"></div>
+                    {service.videoUrl ? (
+                      /* VIDEO CARD — playable HTML5 player */
+                      <div className="card-video-wrap">
+                        <video
+                          className="card-video-player"
+                          src={service.videoUrl}
+                          controls
+                          preload="metadata"
+                          playsInline
+                          onMouseEnter={(e) => {
+                            const v = e.currentTarget;
+                            if (!v.muted) v.muted = true;
+                            v.play().catch(() => {});
+                          }}
+                          onMouseLeave={(e) => {
+                            const v = e.currentTarget;
+                            v.pause();
+                          }}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                        <div className="card-video-badge">
+                          <FaPlay size={9} />
+                          <span>Watch Preview</span>
+                        </div>
+                        {/* DOWNLOAD VIDEO BUTTON */}
+                        <a
+                          href={service.videoUrl}
+                          download
+                          className="card-video-download-btn"
+                          onClick={(e) => e.stopPropagation()}
+                          title="Download this video"
+                          aria-label="Download video"
+                        >
+                          <FaDownload size={11} />
+                          <span>Download</span>
+                        </a>
+                      </div>
+                    ) : (
+                      /* IMAGE CARD — existing slideshow */
+                      <>
+                        <CardSlideshow
+                          images={service.cardImages}
+                          alt={service.name}
+                          intervalMs={3000}
+                        />
+                        <div className="card-image-overlay"></div>
+                      </>
+                    )}
 
                     {/* BADGES */}
                     {service.badge && (
@@ -207,13 +251,6 @@ const Product: React.FC = () => {
                     <span className="card-cat-tag">
                       {service.category.toUpperCase()}
                     </span>
-
-                    {/* VIDEO PLAY ICON OVERLAY */}
-                    {service.isVideo && (
-                      <div className="video-play-overlay">
-                        <FaPlay className="play-icon" />
-                      </div>
-                    )}
                   </div>
 
                   {/* CARD BODY */}
@@ -237,12 +274,14 @@ const Product: React.FC = () => {
                       )}
                     </div>
 
-                    {/* PRICE CONTAINER */}
-                    <div className="card-price-wrap">
-                      <span className="price-label">
-                        {service.isStartingPrice ? "Starting from" : "Price"}
-                      </span>
-                      <div className="price-amount">{service.price}</div>
+                    {/* PRICING INDICATOR */}
+                    <div className="card-quote-indicator">
+                      <span className="card-quote-tag">SERVICE PRICING</span>
+                      <div className="card-quote-value">
+                        <span className="card-quote-icon">✦</span>
+                        Custom Quote
+                      </div>
+                      <p className="card-quote-sub">Based on your requirements</p>
                     </div>
 
                     {/* ACTION BUTTONS */}
@@ -255,13 +294,13 @@ const Product: React.FC = () => {
                       </button>
 
                       <a
-                        href={getWhatsAppLink(service.name, service.price)}
+                        href={getWhatsAppLink(service.name)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="card-btn-primary"
                       >
                         <FaWhatsapp size={14} />
-                        <span>Order Now</span>
+                        <span>Discuss</span>
                       </a>
                     </div>
 
@@ -318,23 +357,44 @@ const Product: React.FC = () => {
             </button>
 
             <div className="modal-grid">
-              {/* MODAL LEFT: SLIDESHOW */}
+              {/* MODAL LEFT: VIDEO PLAYER or SLIDESHOW */}
               <div className="modal-image-col">
                 <div className="modal-img-wrap">
-                  <CardSlideshow
-                    images={selectedService.cardImages}
-                    alt={selectedService.name}
-                    intervalMs={3000}
-                  />
+                  {selectedService.videoUrl ? (
+                    /* Full-size video player in modal */
+                    <div className="modal-video-wrap">
+                      <video
+                        className="modal-video-player"
+                        src={selectedService.videoUrl}
+                        controls
+                        preload="metadata"
+                        playsInline
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      {/* DOWNLOAD VIDEO BUTTON inside modal */}
+                      <a
+                        href={selectedService.videoUrl}
+                        download
+                        className="modal-video-download-btn"
+                        title="Download this video"
+                        aria-label="Download video"
+                      >
+                        <FaDownload size={13} />
+                        <span>Download Video</span>
+                      </a>
+                    </div>
+                  ) : (
+                    <CardSlideshow
+                      images={selectedService.cardImages}
+                      alt={selectedService.name}
+                      intervalMs={3000}
+                    />
+                  )}
                   {selectedService.badge && (
                     <span className="card-badge modal-badge-pos">
                       {selectedService.badge}
                     </span>
-                  )}
-                  {selectedService.isVideo && (
-                    <div className="video-play-overlay modal-play-pos">
-                      <FaPlay className="play-icon" />
-                    </div>
                   )}
                 </div>
 
@@ -361,11 +421,11 @@ const Product: React.FC = () => {
 
                 <h2 className="modal-title">{selectedService.name}</h2>
 
-                <div className="modal-price-box">
-                  <span className="modal-price-sub">
-                    {selectedService.isStartingPrice ? "Starting from" : "Price"}
-                  </span>
-                  <span className="modal-price-val">{selectedService.price}</span>
+                {/* PRICING INDICATOR */}
+                <div className="modal-quote-indicator">
+                  <span className="modal-quote-tag">SERVICE PRICING</span>
+                  <div className="modal-quote-value">✦ Custom Quote</div>
+                  <p className="modal-quote-sub">Based on your specific requirements</p>
                 </div>
 
                 <p className="modal-full-desc">{selectedService.fullDesc}</p>
@@ -404,13 +464,13 @@ const Product: React.FC = () => {
                 {/* MODAL CTA BUTTONS */}
                 <div className="modal-cta-group">
                   <a
-                    href={getWhatsAppLink(selectedService.name, selectedService.price)}
+                    href={getWhatsAppLink(selectedService.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal-btn-whatsapp"
                   >
                     <FaWhatsapp size={16} />
-                    <span>Order via WhatsApp</span>
+                    <span>Discuss</span>
                   </a>
 
                   <a

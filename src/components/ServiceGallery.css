@@ -217,6 +217,60 @@
   line-height: 1;
 }
 
+/* ── Download icon on thumbnail hover (top-right corner) ── */
+.sg-thumb-download {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(6, 6, 48, 0.82);
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  color: #f5a623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s, transform 0.15s;
+  z-index: 3;
+}
+
+.sg-thumb-btn:hover .sg-thumb-download {
+  opacity: 1;
+}
+
+.sg-thumb-download:hover {
+  background: #f5a623;
+  color: rgb(6, 6, 48);
+  transform: scale(1.1);
+}
+
+/* ── Download button in lightbox caption ── */
+.sg-lb-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  color: #f5a623;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.sg-lb-download-btn:hover {
+  background: #f5a623;
+  color: rgb(6, 6, 48);
+  transform: translateY(-1px);
+}
+
 /* ── Empty state ── */
 .sg-empty {
   text-align: center;

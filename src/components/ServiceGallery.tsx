@@ -9,7 +9,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaWhatsapp } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaWhatsapp, FaDownload } from "react-icons/fa";
 import { type ServiceItem } from "./servicesData";
 import "./ServiceGallery.css";
 
@@ -140,6 +140,17 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
                     />
                     <div className="sg-thumb-overlay">
                       <span className="sg-thumb-zoom">⊕</span>
+                      {/* DOWNLOAD icon on thumb hover */}
+                      <a
+                        href={src}
+                        download
+                        className="sg-thumb-download"
+                        onClick={(e) => e.stopPropagation()}
+                        title="Download image"
+                        aria-label={`Download image ${idx + 1}`}
+                      >
+                        <FaDownload size={14} />
+                      </a>
                     </div>
                   </button>
                 ))}
@@ -219,6 +230,17 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
           <div className="sg-lb-caption">
             <strong>{service.name}</strong>
             <span className="sg-lb-price">{service.price}</span>
+            {/* DOWNLOAD current lightbox image */}
+            <a
+              href={images[lightboxIdx]}
+              download
+              className="sg-lb-download-btn"
+              title="Download this image"
+              aria-label="Download full-size image"
+            >
+              <FaDownload size={12} />
+              <span>Download</span>
+            </a>
           </div>
         </div>
       )}

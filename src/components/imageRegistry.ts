@@ -237,3 +237,11 @@ const _webDevRaw = import.meta.glob(
   { eager: true }
 ) as Record<string, { default: string }>;
 export const webDevImages = sortedValues(_webDevRaw);
+
+// ─── VIDEO EDITING SHOWCASE VIDEOS ───────────────────────────────────────────
+
+const _webVideoRaw = import.meta.glob(
+  "../assets/WEBVIDEO/*.{mp4,webm,mov}",
+  { eager: true }
+) as Record<string, { default: string }>;
+export const webVideos = sortedValues(_webVideoRaw);

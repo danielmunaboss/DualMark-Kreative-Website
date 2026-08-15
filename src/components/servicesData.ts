@@ -46,6 +46,7 @@ import {
   businessCardImages,
   programsImages,
   webDevImages,
+  webVideos,
 } from "./imageRegistry";
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -81,6 +82,7 @@ export interface ServiceItem {
   badge?: string;
   turnaround?: string;
   isVideo?: boolean;
+  videoUrl?: string;         // mp4 src for playable video showcase on card
 }
 
 export interface CategoryInfo {
@@ -717,6 +719,7 @@ export const servicesData: ServiceItem[] = [
     galleryImages: webDevImages,
     badge: "Trending",
     isVideo: true,
+    videoUrl: webVideos[0] ?? "",
     turnaround: "1-2 Days"
   },
   {
@@ -733,6 +736,7 @@ export const servicesData: ServiceItem[] = [
     cardImages: pick(weddingInvImages, 3, 5, 7),
     galleryImages: weddingInvImages,
     isVideo: true,
+    videoUrl: webVideos[1] ?? webVideos[0] ?? "",
     turnaround: "5-10 Days"
   },
   {
@@ -749,6 +753,7 @@ export const servicesData: ServiceItem[] = [
     cardImages: pick(programsImages, 0, 1, 2),
     galleryImages: programsImages,
     isVideo: true,
+    videoUrl: webVideos[2] ?? webVideos[0] ?? "",
     turnaround: "3-5 Days"
   },
   {
@@ -765,6 +770,7 @@ export const servicesData: ServiceItem[] = [
     cardImages: pick(programsImages, 1, 2, 0),
     galleryImages: programsImages,
     isVideo: true,
+    videoUrl: webVideos[0] ?? "",
     turnaround: "2-4 Days"
   },
   {
@@ -782,6 +788,7 @@ export const servicesData: ServiceItem[] = [
     galleryImages: webDevImages,
     badge: "Corporate",
     isVideo: true,
+    videoUrl: webVideos[1] ?? webVideos[0] ?? "",
     turnaround: "4-7 Days"
   },
 
