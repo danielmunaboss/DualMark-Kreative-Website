@@ -105,7 +105,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
 
   // ── WhatsApp link ──
   const whatsappLink = `https://wa.me/2347044572371?text=${encodeURIComponent(
-    `Hi Dualmark Kreative! I am interested in your "${service.name}" service (${service.price}). Please provide more details.`
+    `Hi Dualmark Kreative! I’d like to discuss a project for your “${service.name}” service. Please provide me with a custom quote based on my project requirements.`
   )}`;
 
   return (
@@ -140,10 +140,10 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="sg-whatsapp-btn"
-                aria-label={`Order ${service.name} via WhatsApp`}
+                aria-label={`Discuss ${service.name} project via WhatsApp`}
               >
                 <FaWhatsapp size={15} />
-                <span>Order Now</span>
+                <span>Discuss Project</span>
               </a>
 
               <button
@@ -351,7 +351,6 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
           {/* Caption */}
           <div className="sg-lb-caption">
             <strong>{service.name}</strong>
-            <span className="sg-lb-price">{service.price}</span>
             <a
               href={items[lightboxIdx]}
               download

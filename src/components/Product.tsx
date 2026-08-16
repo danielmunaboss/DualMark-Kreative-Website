@@ -316,7 +316,7 @@ const Product: React.FC = () => {
                         className="card-btn-primary"
                       >
                         <FaWhatsapp size={14} />
-                        <span>Discuss</span>
+                        <span>Discuss Project</span>
                       </a>
                     </div>
 
@@ -510,7 +510,7 @@ const Product: React.FC = () => {
                     className="modal-btn-whatsapp"
                   >
                     <FaWhatsapp size={16} />
-                    <span>Discuss</span>
+                    <span>Discuss Project</span>
                   </a>
 
                   <a
