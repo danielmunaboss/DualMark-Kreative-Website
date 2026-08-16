@@ -79,6 +79,7 @@ export interface ServiceItem {
   imageUrl: string;
   cardImages: string[];      // exactly 3 (or fewer if folder has <3 images)
   galleryImages: string[];   // all images for this service's gallery
+  galleryVideos?: string[];  // all videos for this service's gallery (video category)
   badge?: string;
   turnaround?: string;
   isVideo?: boolean;
@@ -714,9 +715,10 @@ export const servicesData: ServiceItem[] = [
     isStartingPrice: true,
     specification: "Per Reel / Short (Up to 60s) | 4K / 1080p",
     features: ["Animated B-Roll & Subtitles", "Trending Sound FX & Music", "Color Grading & Stabilization", "Fast 48-Hour Turnaround"],
-    imageUrl: webDevImages[0] ?? "",
-    cardImages: pick(webDevImages, 0, 1, 2),
-    galleryImages: webDevImages,
+    imageUrl: "",
+    cardImages: [],
+    galleryImages: [],
+    galleryVideos: webVideos,
     badge: "Trending",
     isVideo: true,
     videoUrl: webVideos[0] ?? "",
@@ -732,9 +734,10 @@ export const servicesData: ServiceItem[] = [
     isStartingPrice: true,
     specification: "3-5 Min Teaser + Full Length Film Edit",
     features: ["Cinematic 4K Color Grading", "Multi-Camera Audio Synchronization", "Licensed Romantic Soundtrack", "Custom USB / Cloud Storage Delivery"],
-    imageUrl: weddingInvImages[3] ?? weddingInvImages[0] ?? "",
-    cardImages: pick(weddingInvImages, 3, 5, 7),
-    galleryImages: weddingInvImages,
+    imageUrl: "",
+    cardImages: [],
+    galleryImages: [],
+    galleryVideos: webVideos,
     isVideo: true,
     videoUrl: webVideos[1] ?? webVideos[0] ?? "",
     turnaround: "5-10 Days"
@@ -749,9 +752,10 @@ export const servicesData: ServiceItem[] = [
     isStartingPrice: true,
     specification: "Full Memorial Event Video + 1-Min Highlight",
     features: ["Photo Slideshow Animation", "Audio Cleanup & Voiceover Sync", "Memorial Music Selection", "Fast Delivery for Funeral Services"],
-    imageUrl: programsImages[0] ?? "",
-    cardImages: pick(programsImages, 0, 1, 2),
-    galleryImages: programsImages,
+    imageUrl: "",
+    cardImages: [],
+    galleryImages: [],
+    galleryVideos: webVideos,
     isVideo: true,
     videoUrl: webVideos[2] ?? webVideos[0] ?? "",
     turnaround: "3-5 Days"
@@ -766,9 +770,10 @@ export const servicesData: ServiceItem[] = [
     isStartingPrice: true,
     specification: "1-3 Minute Aftermovie | 4K / 1080p Export",
     features: ["Beat-Synced Transition Effects", "Motion Graphic Logo Intro", "Sound Effects & Crowd Audio", "Optimized for Instagram & YouTube"],
-    imageUrl: programsImages[1] ?? programsImages[0] ?? "",
-    cardImages: pick(programsImages, 1, 2, 0),
-    galleryImages: programsImages,
+    imageUrl: "",
+    cardImages: [],
+    galleryImages: [],
+    galleryVideos: webVideos,
     isVideo: true,
     videoUrl: webVideos[0] ?? "",
     turnaround: "2-4 Days"
@@ -783,9 +788,10 @@ export const servicesData: ServiceItem[] = [
     isStartingPrice: true,
     specification: "Full Keynote Edit + Short Promo Recap",
     features: ["Animated Speaker Name Lower-Thirds", "Presentation Slide Overlay Integration", "Noise Reduction & Voice EQ", "Executive Presentation Style"],
-    imageUrl: webDevImages[1] ?? webDevImages[0] ?? "",
-    cardImages: pick(webDevImages, 1, 2, 3),
-    galleryImages: webDevImages,
+    imageUrl: "",
+    cardImages: [],
+    galleryImages: [],
+    galleryVideos: webVideos,
     badge: "Corporate",
     isVideo: true,
     videoUrl: webVideos[1] ?? webVideos[0] ?? "",

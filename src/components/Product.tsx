@@ -61,6 +61,30 @@ const Product: React.FC = () => {
     });
   }, [activeCategory, searchQuery]);
 
+  // Ensure only one video plays across all cards/modals at any given time
+  const handleVideoPlay = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const currentVideo = e.currentTarget;
+    document.querySelectorAll("video").forEach((vid) => {
+      if (vid !== currentVideo && !vid.paused) {
+        vid.pause();
+      }
+    });
+  };
+
+  const handleOpenModal = (service: ServiceItem) => {
+    document.querySelectorAll("video").forEach((vid) => {
+      if (!vid.paused) vid.pause();
+    });
+    setSelectedService(service);
+  };
+
+  const handleCloseModal = () => {
+    document.querySelectorAll("video").forEach((vid) => {
+      if (!vid.paused) vid.pause();
+    });
+    setSelectedService(null);
+  };
+
   const renderCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case "FaPrint":
@@ -201,15 +225,7 @@ const Product: React.FC = () => {
                           controls
                           preload="metadata"
                           playsInline
-                          onMouseEnter={(e) => {
-                            const v = e.currentTarget;
-                            if (!v.muted) v.muted = true;
-                            v.play().catch(() => {});
-                          }}
-                          onMouseLeave={(e) => {
-                            const v = e.currentTarget;
-                            v.pause();
-                          }}
+                          onPlay={handleVideoPlay}
                         >
                           Your browser does not support the video tag.
                         </video>
@@ -288,7 +304,7 @@ const Product: React.FC = () => {
                     <div className="card-actions-row">
                       <button
                         className="card-btn-secondary"
-                        onClick={() => setSelectedService(service)}
+                        onClick={() => handleOpenModal(service)}
                       >
                         View Details
                       </button>
@@ -305,14 +321,28 @@ const Product: React.FC = () => {
                     </div>
 
                     {/* VIEW GALLERY BUTTON */}
-                    {service.galleryImages && service.galleryImages.length > 0 && (
+                    {((service.galleryVideos && service.galleryVideos.length > 0) || (service.galleryImages && service.galleryImages.length > 0)) && (
                       <button
                         className="card-btn-gallery"
-                        onClick={() => setGalleryService(service)}
-                        aria-label={`View all ${service.name} images in gallery`}
+                        onClick={() => {
+                          document.querySelectorAll("video").forEach((v) => {
+                            if (!v.paused) v.pause();
+                          });
+                          setGalleryService(service);
+                        }}
+                        aria-label={`View all ${service.name} items in gallery`}
                       >
-                        <FaImages size={13} />
-                        <span>View Gallery ({service.galleryImages.length})</span>
+                        {service.isVideo || (service.galleryVideos && service.galleryVideos.length > 0) ? (
+                          <>
+                            <FaPlay size={11} />
+                            <span>View Video Gallery ({service.galleryVideos?.length || 0})</span>
+                          </>
+                        ) : (
+                          <>
+                            <FaImages size={13} />
+                            <span>View Gallery ({service.galleryImages?.length || 0})</span>
+                          </>
+                        )}
                       </button>
                     )}
                   </div>
@@ -343,7 +373,7 @@ const Product: React.FC = () => {
 
       {/* SERVICE DETAILS MODAL POPUP */}
       {selectedService && (
-        <div className="modal-backdrop" onClick={() => setSelectedService(null)}>
+        <div className="modal-backdrop" onClick={handleCloseModal}>
           <div
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
@@ -351,7 +381,7 @@ const Product: React.FC = () => {
           >
             <button
               className="modal-close-btn"
-              onClick={() => setSelectedService(null)}
+              onClick={handleCloseModal}
             >
               <FaTimes />
             </button>
@@ -369,6 +399,7 @@ const Product: React.FC = () => {
                         controls
                         preload="metadata"
                         playsInline
+                        onPlay={handleVideoPlay}
                       >
                         Your browser does not support the video tag.
                       </video>
@@ -399,16 +430,25 @@ const Product: React.FC = () => {
                 </div>
 
                 {/* View Gallery link inside modal */}
-                {selectedService.galleryImages && selectedService.galleryImages.length > 0 && (
+                {((selectedService.galleryVideos && selectedService.galleryVideos.length > 0) || (selectedService.galleryImages && selectedService.galleryImages.length > 0)) && (
                   <button
                     className="modal-gallery-btn"
                     onClick={() => {
-                      setSelectedService(null);
+                      handleCloseModal();
                       setGalleryService(selectedService);
                     }}
                   >
-                    <FaImages size={14} />
-                    <span>View Full Gallery ({selectedService.galleryImages.length} images)</span>
+                    {selectedService.isVideo || (selectedService.galleryVideos && selectedService.galleryVideos.length > 0) ? (
+                      <>
+                        <FaPlay size={12} />
+                        <span>View Video Gallery ({selectedService.galleryVideos?.length || 0} videos)</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaImages size={14} />
+                        <span>View Full Gallery ({selectedService.galleryImages?.length || 0} images)</span>
+                      </>
+                    )}
                   </button>
                 )}
               </div>

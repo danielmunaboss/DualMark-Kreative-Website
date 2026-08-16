@@ -2,14 +2,15 @@
  * ServiceGallery.tsx
  * ─────────────────────────────────────────────────────────────────────────────
  * Full-screen gallery modal for a single service.
- * Shows all images for that service in a masonry-style grid.
- * Click any image → opens a lightbox with prev/next/close controls.
+ * Supports both Image Galleries and dedicated Video Galleries.
+ * For video services, displays playable video cards and a full video player lightbox.
+ * Ensures only one video plays at a time and provides direct download controls.
  * Keyboard accessible: ← → to navigate, Escape to close.
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaWhatsapp, FaDownload } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaWhatsapp, FaDownload, FaPlay, FaExpand } from "react-icons/fa";
 import { type ServiceItem } from "./servicesData";
 import "./ServiceGallery.css";
 
@@ -23,17 +24,45 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
   const overlayRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const images = service.galleryImages ?? [];
-  const total = images.length;
+  const isVideoGallery = Boolean(
+    service.isVideo ||
+    (service.galleryVideos && service.galleryVideos.length > 0) ||
+    service.category === "video"
+  );
+
+  const items = isVideoGallery
+    ? (service.galleryVideos ?? [])
+    : (service.galleryImages ?? []);
+
+  const total = items.length;
+
+  // Single active video player handler across the page & gallery
+  const handleVideoPlay = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const currentVideo = e.currentTarget;
+    document.querySelectorAll("video").forEach((vid) => {
+      if (vid !== currentVideo && !vid.paused) {
+        vid.pause();
+      }
+    });
+  };
+
+  const handleClose = useCallback(() => {
+    document.querySelectorAll("video").forEach((vid) => {
+      if (!vid.paused) vid.pause();
+    });
+    onClose();
+  }, [onClose]);
 
   // ── Lock body scroll while gallery is open ──
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    // Focus the close button for accessibility
     setTimeout(() => closeRef.current?.focus(), 50);
     return () => {
       document.body.style.overflow = prev;
+      document.querySelectorAll("video").forEach((vid) => {
+        if (!vid.paused) vid.pause();
+      });
     };
   }, []);
 
@@ -41,23 +70,32 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (lightboxIdx === null) {
-        if (e.key === "Escape") onClose();
+        if (e.key === "Escape") handleClose();
         return;
       }
       if (e.key === "Escape") {
+        document.querySelectorAll("video").forEach((vid) => {
+          if (!vid.paused) vid.pause();
+        });
         setLightboxIdx(null);
         return;
       }
       if (e.key === "ArrowRight") {
+        document.querySelectorAll("video").forEach((vid) => {
+          if (!vid.paused) vid.pause();
+        });
         setLightboxIdx((prev) => (prev !== null ? (prev + 1) % total : 0));
       }
       if (e.key === "ArrowLeft") {
+        document.querySelectorAll("video").forEach((vid) => {
+          if (!vid.paused) vid.pause();
+        });
         setLightboxIdx((prev) =>
           prev !== null ? (prev - 1 + total) % total : total - 1
         );
       }
     },
-    [lightboxIdx, total, onClose]
+    [lightboxIdx, total, handleClose]
   );
 
   useEffect(() => {
@@ -80,17 +118,19 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
         aria-modal="true"
         aria-label={`${service.name} Gallery`}
         onClick={(e) => {
-          if (e.target === overlayRef.current) onClose();
+          if (e.target === overlayRef.current) handleClose();
         }}
       >
         <div className="sg-panel">
           {/* ── HEADER ── */}
           <div className="sg-header">
             <div className="sg-header-info">
-              <span className="sg-cat-tag">{service.category.toUpperCase()}</span>
+              <span className="sg-cat-tag">
+                {isVideoGallery ? "VIDEO SHOWCASE GALLERY" : `${service.category.toUpperCase()} GALLERY`}
+              </span>
               <h2 className="sg-title">{service.name}</h2>
               <p className="sg-count">
-                {total} {total === 1 ? "image" : "images"} in this collection
+                {total} {total === 1 ? (isVideoGallery ? "video" : "image") : (isVideoGallery ? "videos" : "images")} in this collection
               </p>
             </div>
 
@@ -108,7 +148,7 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
 
               <button
                 className="sg-close-btn"
-                onClick={onClose}
+                onClick={handleClose}
                 ref={closeRef}
                 aria-label="Close gallery"
               >
@@ -117,15 +157,67 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
             </div>
           </div>
 
-          {/* ── IMAGE GRID ── */}
+          {/* ── GRID CONTENT ── */}
           <div className="sg-grid-wrap">
             {total === 0 ? (
               <div className="sg-empty">
-                <p>No images available for this service yet.</p>
+                <p>No {isVideoGallery ? "videos" : "images"} available for this service yet.</p>
+              </div>
+            ) : isVideoGallery ? (
+              /* ── VIDEO GALLERY GRID ── */
+              <div className="sg-video-grid">
+                {items.map((src, idx) => (
+                  <div key={idx} className="sg-video-card">
+                    <div className="sg-video-frame">
+                      <video
+                        className="sg-video-player"
+                        src={src}
+                        controls
+                        preload="metadata"
+                        playsInline
+                        onPlay={handleVideoPlay}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      <div className="sg-video-badge">
+                        <FaPlay size={10} />
+                        <span>Showcase #{idx + 1}</span>
+                      </div>
+                    </div>
+
+                    <div className="sg-video-card-footer">
+                      <button
+                        className="sg-video-expand-btn"
+                        onClick={() => {
+                          document.querySelectorAll("video").forEach((vid) => {
+                            if (!vid.paused) vid.pause();
+                          });
+                          setLightboxIdx(idx);
+                        }}
+                        aria-label={`Open Video #${idx + 1} in Fullscreen Lightbox`}
+                      >
+                        <FaExpand size={12} />
+                        <span>Theater Mode</span>
+                      </button>
+
+                      <a
+                        href={src}
+                        download
+                        className="sg-video-download-btn"
+                        title="Download video"
+                        aria-label={`Download video ${idx + 1}`}
+                      >
+                        <FaDownload size={12} />
+                        <span>Download</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : (
+              /* ── IMAGE GALLERY GRID ── */
               <div className="sg-grid">
-                {images.map((src, idx) => (
+                {items.map((src, idx) => (
                   <button
                     key={idx}
                     className="sg-thumb-btn"
@@ -140,7 +232,6 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
                     />
                     <div className="sg-thumb-overlay">
                       <span className="sg-thumb-zoom">⊕</span>
-                      {/* DOWNLOAD icon on thumb hover */}
                       <a
                         href={src}
                         download
@@ -166,16 +257,25 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
           className="sg-lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label={`${service.name} lightbox — image ${lightboxIdx + 1} of ${total}`}
+          aria-label={`${service.name} lightbox — ${isVideoGallery ? "video" : "image"} ${lightboxIdx + 1} of ${total}`}
           onClick={(e) => {
-            if ((e.target as HTMLElement).classList.contains("sg-lightbox"))
+            if ((e.target as HTMLElement).classList.contains("sg-lightbox")) {
+              document.querySelectorAll("video").forEach((vid) => {
+                if (!vid.paused) vid.pause();
+              });
               setLightboxIdx(null);
+            }
           }}
         >
           {/* Close */}
           <button
             className="sg-lb-close"
-            onClick={() => setLightboxIdx(null)}
+            onClick={() => {
+              document.querySelectorAll("video").forEach((vid) => {
+                if (!vid.paused) vid.pause();
+              });
+              setLightboxIdx(null);
+            }}
             aria-label="Close lightbox"
           >
             <FaTimes />
@@ -183,44 +283,66 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
 
           {/* Counter */}
           <div className="sg-lb-counter" aria-live="polite">
-            {lightboxIdx + 1} / {total}
+            {isVideoGallery ? "Video" : "Image"} {lightboxIdx + 1} / {total}
           </div>
 
           {/* Prev */}
           {total > 1 && (
             <button
               className="sg-lb-nav sg-lb-prev"
-              onClick={() =>
+              onClick={() => {
+                document.querySelectorAll("video").forEach((vid) => {
+                  if (!vid.paused) vid.pause();
+                });
                 setLightboxIdx((prev) =>
                   prev !== null ? (prev - 1 + total) % total : 0
-                )
-              }
-              aria-label="Previous image"
+                );
+              }}
+              aria-label="Previous item"
             >
               <FaChevronLeft />
             </button>
           )}
 
-          {/* Image */}
-          <div className="sg-lb-img-wrap">
-            <img
-              key={lightboxIdx}
-              src={images[lightboxIdx]}
-              alt={`${service.name} — image ${lightboxIdx + 1}`}
-              className="sg-lb-img"
-            />
-          </div>
+          {/* Media Content (Video or Image) */}
+          {isVideoGallery ? (
+            <div className="sg-lb-video-wrap">
+              <video
+                key={lightboxIdx}
+                src={items[lightboxIdx]}
+                controls
+                autoPlay
+                playsInline
+                onPlay={handleVideoPlay}
+                className="sg-lb-video-player"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ) : (
+            <div className="sg-lb-img-wrap">
+              <img
+                key={lightboxIdx}
+                src={items[lightboxIdx]}
+                alt={`${service.name} — image ${lightboxIdx + 1}`}
+                className="sg-lb-img"
+              />
+            </div>
+          )}
 
           {/* Next */}
           {total > 1 && (
             <button
               className="sg-lb-nav sg-lb-next"
-              onClick={() =>
+              onClick={() => {
+                document.querySelectorAll("video").forEach((vid) => {
+                  if (!vid.paused) vid.pause();
+                });
                 setLightboxIdx((prev) =>
                   prev !== null ? (prev + 1) % total : 0
-                )
-              }
-              aria-label="Next image"
+                );
+              }}
+              aria-label="Next item"
             >
               <FaChevronRight />
             </button>
@@ -230,16 +352,15 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
           <div className="sg-lb-caption">
             <strong>{service.name}</strong>
             <span className="sg-lb-price">{service.price}</span>
-            {/* DOWNLOAD current lightbox image */}
             <a
-              href={images[lightboxIdx]}
+              href={items[lightboxIdx]}
               download
               className="sg-lb-download-btn"
-              title="Download this image"
-              aria-label="Download full-size image"
+              title={`Download this ${isVideoGallery ? "video" : "image"}`}
+              aria-label={`Download full-size ${isVideoGallery ? "video" : "image"}`}
             >
               <FaDownload size={12} />
-              <span>Download</span>
+              <span>Download {isVideoGallery ? "Video" : "Image"}</span>
             </a>
           </div>
         </div>
