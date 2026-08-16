@@ -281,7 +281,7 @@ const Product: React.FC = () => {
                         <span className="card-quote-icon">✦</span>
                         Custom Quote
                       </div>
-                      <p className="card-quote-sub">Based on your requirements</p>
+                      <p className="card-quote-sub">Tailored to your project requirements</p>
                     </div>
 
                     {/* ACTION BUTTONS */}
@@ -425,7 +425,7 @@ const Product: React.FC = () => {
                 <div className="modal-quote-indicator">
                   <span className="modal-quote-tag">SERVICE PRICING</span>
                   <div className="modal-quote-value">✦ Custom Quote</div>
-                  <p className="modal-quote-sub">Based on your specific requirements</p>
+                  <p className="modal-quote-sub">Tailored to your project requirements</p>
                 </div>
 
                 <p className="modal-full-desc">{selectedService.fullDesc}</p>
