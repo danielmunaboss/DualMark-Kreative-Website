@@ -6,11 +6,11 @@ import {
   FaEnvelope,
   FaFacebookF,
   FaLinkedinIn,
-  FaTwitter,
   FaInstagram,
   FaWhatsapp,
   FaGithub,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import dmklogo from "../assets/images/DMK LOGO DUAL MARK KREATIVE2.png";
 
 const Footer = () => {
@@ -59,12 +59,24 @@ const Footer = () => {
             <Link to="" className="footer-social-icon" aria-label="Instagram">
               <FaInstagram size={14} />
             </Link>
-            <Link to="" className="footer-social-icon" aria-label="Twitter">
-              <FaTwitter size={14} />
-            </Link>
-            <Link to="" className="footer-social-icon" aria-label="LinkedIn">
+            <a
+              href="https://x.com/Dualmark_001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="X (Twitter)"
+            >
+              <FaXTwitter size={14} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/munachi-daniel-abraham-38a48441a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="LinkedIn"
+            >
               <FaLinkedinIn size={14} />
-            </Link>
+            </a>
           </div>
         </div>
 
