@@ -56,9 +56,15 @@ const Footer = () => {
             >
               <FaGithub size={14} />
             </a>
-            <Link to="" className="footer-social-icon" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-icon"
+              aria-label="Instagram"
+            >
               <FaInstagram size={14} />
-            </Link>
+            </a>
             <a
               href="https://x.com/Dualmark_001"
               target="_blank"

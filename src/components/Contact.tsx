@@ -127,7 +127,7 @@ const Contact = () => {
                   <span>WhatsApp Chat</span>
                 </a>
                 <a
-                  href=""
+                  href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="dm-social-btn instagram-btn"

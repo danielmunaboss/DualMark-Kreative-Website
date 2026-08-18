@@ -95,9 +95,15 @@ const Header = () => {
           >
             <FaWhatsapp size={15} />
           </a>
-          <Link to="" className="nav-btn nav-btn--solid" aria-label="Instagram">
+          <a
+            href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn nav-btn--solid"
+            aria-label="Instagram"
+          >
             <FaInstagram size={15} />
-          </Link>
+          </a>
 
           <button
             className={`nav-hamburger ${menuOpen ? "nav-hamburger--open" : ""}`}
