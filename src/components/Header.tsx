@@ -35,7 +35,7 @@ const Header = () => {
   const navLinks = [
     { label: "HOME", to: "/" },
     { label: "ABOUT", to: "/About" },
-    { label: "PRODUCTS", to: "/Product" },
+    { label: "SERVICES", to: "/Product" },
     { label: "CONTACT", to: "/Contact" },
   ];
 
@@ -96,7 +96,7 @@ const Header = () => {
             <FaWhatsapp size={15} />
           </a>
           <a
-            href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
+            href="https://www.instagram.com/dualmark.kreative?igsi=MWpzaGVqbzB1c3A1ZQ=="
             target="_blank"
             rel="noopener noreferrer"
             className="nav-btn nav-btn--solid"

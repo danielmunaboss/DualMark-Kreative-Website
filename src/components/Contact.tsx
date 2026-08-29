@@ -99,7 +99,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4>Email Address</h4>
-                  <p>abrahamdanielmunachi@gmail.com</p>
+                  <p><a href="mailto:dualmarkkreative@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>dualmarkkreative@gmail.com</a></p>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4>Location</h4>
-                  <p>Nigeria</p>
+                  <p>Owerri, Imo State, Nigeria</p>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                   <span>WhatsApp Chat</span>
                 </a>
                 <a
-                  href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
+                  href="https://www.instagram.com/dualmark.kreative?igsi=MWpzaGVqbzB1c3A1ZQ=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="dm-social-btn instagram-btn"

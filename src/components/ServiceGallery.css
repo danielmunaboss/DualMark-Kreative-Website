@@ -594,18 +594,31 @@
   }
 
   .sg-header {
-    flex-direction: column;
-    padding: 18px 16px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .sg-header-info {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .sg-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .sg-header-actions {
-    width: 100%;
-    justify-content: space-between;
+    flex-shrink: 0;
+    justify-content: flex-end;
   }
 
   .sg-whatsapp-btn {
-    flex: 1;
-    justify-content: center;
+    white-space: nowrap;
   }
 
   .sg-title {

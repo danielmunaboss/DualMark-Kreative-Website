@@ -50,15 +50,33 @@ const Product: React.FC = () => {
 
   // Filter services based on category and search query
   const filteredServices = useMemo(() => {
-    return servicesData.filter((item) => {
-      const matchesCategory = activeCategory === "all" || item.category === activeCategory;
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.specification && item.specification.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchesCategory && matchesSearch;
-    });
+    const categoryPriority: Record<string, number> = {
+      branding: 1,
+      design: 2,
+      printing: 3,
+      video: 4,
+      web: 5,
+      marketing: 6,
+    };
+
+    return servicesData
+      .filter((item) => {
+        const matchesCategory = activeCategory === "all" || item.category === activeCategory;
+        const matchesSearch =
+          searchQuery.trim() === "" ||
+          item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (item.specification && item.specification.toLowerCase().includes(searchQuery.toLowerCase()));
+        return matchesCategory && matchesSearch;
+      })
+      .sort((a, b) => {
+        if (activeCategory === "all" && searchQuery.trim() === "") {
+          const priorityA = categoryPriority[a.category] || 99;
+          const priorityB = categoryPriority[b.category] || 99;
+          return priorityA - priorityB;
+        }
+        return 0;
+      });
   }, [activeCategory, searchQuery]);
 
   // Ensure only one video plays across all cards/modals at any given time
@@ -104,8 +122,11 @@ const Product: React.FC = () => {
     }
   };
 
-  const getWhatsAppLink = (serviceName: string) => {
-    const text = `Hi Dualmark Kreative! I’d like to discuss a project for your “${serviceName}” service. Please provide me with a custom quote based on my requirements.`;
+  const getWhatsAppLink = (service: { name: string; category?: string }) => {
+    const text = `Hi Dualmark Kreative! I’d like to discuss a project for your “${service.name}” service. Please provide me with a custom quote based on my requirements.`;
+    if (service.category === "video" || service.category === "marketing") {
+      return `https://wa.me/qr/HB24KLEQIAMXG1?text=${encodeURIComponent(text)}`;
+    }
     return `https://wa.me/2347044572371?text=${encodeURIComponent(text)}`;
   };
 
@@ -310,7 +331,7 @@ const Product: React.FC = () => {
                       </button>
 
                       <a
-                        href={getWhatsAppLink(service.name)}
+                        href={getWhatsAppLink(service)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="card-btn-primary"
@@ -504,7 +525,7 @@ const Product: React.FC = () => {
                 {/* MODAL CTA BUTTONS */}
                 <div className="modal-cta-group">
                   <a
-                    href={getWhatsAppLink(selectedService.name)}
+                    href={getWhatsAppLink(selectedService)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="modal-btn-whatsapp"

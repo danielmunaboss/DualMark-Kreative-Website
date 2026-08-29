@@ -24,13 +24,11 @@ const Footer = () => {
             <img src={dmklogo} alt="Dualmark Kreative Logo" className="footer-logo-img" />
           </Link>
           <p className="brand-desc">
-            We transform creative ideas into powerful visual experiences. Our
-            solutions help businesses build strong, memorable brands through
-            thoughtful design, premium print, and modern digital development.
+            We help businesses, startups, and personal brands build stronger identities, digital presence, and engaging content through strategy, creativity, and technology.
           </p>
           <div className="footer-social-row">
             <a
-              href="https://www.facebook.com/share/19Ad45EhXF/"
+              href="https://www.facebook.com/share/1EXmRL485N/"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-social-icon"
@@ -57,7 +55,7 @@ const Footer = () => {
               <FaGithub size={14} />
             </a>
             <a
-              href="https://www.instagram.com/dualmark.kreative?igsh=MWFjeWI4azBlYTg5Mw=="
+              href="https://www.instagram.com/dualmark.kreative?igsi=MWpzaGVqbzB1c3A1ZQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="footer-social-icon"
@@ -94,10 +92,13 @@ const Footer = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/About">About Us</Link>
+              <Link to="/About">About</Link>
             </li>
             <li>
-              <Link to="/Product">Products</Link>
+              <Link to="/Product">Services</Link>
+            </li>
+            <li>
+              <Link to="/Product">Portfolio</Link>
             </li>
             <li>
               <Link to="/Contact">Contact</Link>
@@ -115,11 +116,11 @@ const Footer = () => {
             </li>
             <li>
               <FaEnvelope size={12} className="footer-icon-accent" />
-              <a href="mailto:dmk@gmail.com">dmk@gmail.com</a>
+              <a href="mailto:dualmarkkreative@gmail.com">dualmarkkreative@gmail.com</a>
             </li>
             <li>
               <FaMapMarkerAlt size={12} className="footer-icon-accent" />
-              <span>Owerri, Imo State, Nigeria</span>
+              <span>Owerri, Imo State, Nigeria &amp; Worldwide</span>
             </li>
           </ul>
         </div>

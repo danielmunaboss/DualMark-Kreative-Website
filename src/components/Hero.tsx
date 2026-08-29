@@ -67,28 +67,25 @@ const Hero = () => {
             {/* Badge */}
             <div className="hero-badge" data-aos="fade-down" data-aos-delay="100">
               <span className="hero-badge-dot"></span>
-              <span>Creative Brand Hub — Dualmark Kreative</span>
+              <span>Creative &amp; Digital Brand Studio</span>
             </div>
 
             {/* Headline */}
             <h1 className="hero-headline" data-aos="fade-up" data-aos-delay="200">
-              Turning Ideas Into
-              <span className="hero-headline-accent"> Impactful Brand </span>
-              Experiences.
+              Turning Ideas Into Brands That
+              <span className="hero-headline-accent"> Make an Impact.</span>
             </h1>
 
             {/* Subtext */}
             <p className="hero-subtext" data-aos="fade-up" data-aos-delay="350">
-              We create stunning designs, build modern websites, produce engaging
-              videos, and deliver high-quality print solutions tailored to elevate
-              your brand.
+              We help businesses, startups, and personal brands build stronger identities and digital presence through strategic branding, creative content, websites, digital marketing, and media production.
             </p>
 
             {/* CTAs */}
             <div className="hero-cta-group" data-aos="fade-up" data-aos-delay="450">
               <Link to="/Product">
                 <button className="hero-btn-primary">
-                  Explore Portfolio <FaArrowRight size={13} />
+                  View Our Work <FaArrowRight size={13} />
                 </button>
               </Link>
               <a
@@ -98,7 +95,7 @@ const Hero = () => {
               >
                 <button className="hero-btn-secondary">
                   <FaWhatsapp size={16} />
-                  Chat Us on WhatsApp
+                  Chat with Us on WhatsApp
                 </button>
               </a>
             </div>
@@ -107,17 +104,18 @@ const Hero = () => {
             <div className="hero-stats" data-aos="fade-up" data-aos-delay="550">
               <div className="hero-stat-pill">
                 <strong>100+</strong>
-                <span>Projects Done</span>
+                <span>Projects Delivered</span>
               </div>
               <div className="hero-stat-divider"></div>
+
               <div className="hero-stat-pill">
                 <strong>30+</strong>
-                <span>Happy Clients</span>
+                <span>Clients Served</span>
               </div>
               <div className="hero-stat-divider"></div>
               <div className="hero-stat-pill">
-                <strong>7+</strong>
-                <span>Years Experience</span>
+                <strong>Since 2025</strong>
+                <span>Building Brands &amp; Digital Experiences</span>
               </div>
             </div>
           </div>
@@ -145,11 +143,11 @@ const Hero = () => {
         <div className="dm-services-header" data-aos="fade-up">
           <div className="dm-services-badge">
             <span className="dm-badge-dot"></span>
-            <span>OUR EXPERTISE</span>
+            <span>Our expertise</span>
           </div>
-          <h2>Transforming Ideas Into Digital Reality</h2>
+          <h2>Building Brands for the Digital World.</h2>
           <p className="dm-services-subtitle">
-            We deliver comprehensive creative and technological solutions tailored to scale your brand and engage your target audience.
+            We combine strategy, creativity, technology, and media to help businesses build stronger brands, reach their audiences, and grow their digital presence.
           </p>
         </div>
 
@@ -169,16 +167,15 @@ const Hero = () => {
             </div>
             <h3>Branding</h3>
             <p>
-              Complete brand identity: logos, color palettes, typography, and
-              guidelines that make your business unforgettable.
+              Complete brand identities, from logos and visual systems to typography and brand guidelines, designed to make your business recognizable and consistent.
             </p>
             <div className="dm-service-tags">
               <span>Logo Design</span>
-              <span>Visual Identity</span>
-              <span>Brand Guide</span>
+              <span>Brand Identity</span>
+              <span>Apparel &amp; Merchandise</span>
             </div>
             <Link to="/Product?category=branding" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -196,18 +193,17 @@ const Hero = () => {
               </div>
               <span className="dm-service-number">02</span>
             </div>
-            <h3>Graphics Design</h3>
+            <h3>Graphic Design</h3>
             <p>
-              Eye-catching flyers, social media content, posters, and
-              corporate materials designed to grab attention.
+              Professional visual communication for campaigns, social media, marketing materials, businesses, and organizations.
             </p>
             <div className="dm-service-tags">
-              <span>Flyers & Posters</span>
-              <span>Social Media</span>
+              <span>Corporate Design</span>
+              <span>Social Media Design</span>
               <span>Ad Creatives</span>
             </div>
             <Link to="/Product?category=design" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -216,27 +212,26 @@ const Hero = () => {
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="150"
-            onClick={() => navigate("/Product?category=video")}
+            onClick={() => navigate("/Product?category=printing")}
             style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
-                <FaVideo size={22} />
+                <FaPrint size={22} />
               </div>
               <span className="dm-service-number">03</span>
             </div>
-            <h3>Video Editing</h3>
+            <h3>Printing</h3>
             <p>
-              Engaging video edits, motion graphics, and commercial ads that tell your
-              brand story and drive engagement.
+              Professional print and branded materials that extend your visual identity into the physical world.
             </p>
             <div className="dm-service-tags">
-              <span>Motion Graphics</span>
-              <span>Promo Videos</span>
-              <span>Reels & Ads</span>
+              <span>Business Cards</span>
+              <span>Flex Banners</span>
+              <span>Branded Materials</span>
             </div>
-            <Link to="/Product?category=video" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+            <Link to="/Product?category=printing" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -245,27 +240,26 @@ const Hero = () => {
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="200"
-            onClick={() => navigate("/Product?category=web")}
+            onClick={() => navigate("/Product?category=video")}
             style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
-                <FaCode size={22} />
+                <FaVideo size={22} />
               </div>
               <span className="dm-service-number">04</span>
             </div>
-            <h3>Website Development</h3>
+            <h3>Video Editing</h3>
             <p>
-              Fast, responsive, and conversion-focused websites built with
-              modern web technologies for your business.
+              Turn raw footage into polished, engaging videos for social media, events, campaigns, and business communication.
             </p>
             <div className="dm-service-tags">
-              <span>Web Applications</span>
-              <span>UI/UX Design</span>
-              <span>SEO Optimized</span>
+              <span>Reels &amp; Short-Form</span>
+              <span>Event Highlights</span>
+              <span>Motion Graphics</span>
             </div>
-            <Link to="/Product?category=web" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+            <Link to="/Product?category=video" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -274,27 +268,26 @@ const Hero = () => {
             className="dm-service-card"
             data-aos="fade-up"
             data-aos-delay="250"
-            onClick={() => navigate("/Product?category=printing")}
+            onClick={() => navigate("/Product?category=web")}
             style={{ cursor: "pointer" }}
           >
             <div className="dm-service-card-top">
               <div className="dm-service-icon-box">
-                <FaPrint size={22} />
+                <FaCode size={22} />
               </div>
               <span className="dm-service-number">05</span>
             </div>
-            <h3>Printing Services</h3>
+            <h3>Web Development</h3>
             <p>
-              Premium quality printing for business cards, brochures, banners, branded
-              packaging, and event materials.
+              Fast, responsive, and conversion-focused websites and web applications built around your business needs.
             </p>
             <div className="dm-service-tags">
-              <span>Business Cards</span>
-              <span>Large Format</span>
-              <span>Packaging</span>
+              <span>E-commerce Websites</span>
+              <span>Web Applications</span>
+              <span>Full-Stack Development</span>
             </div>
-            <Link to="/Product?category=printing" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+            <Link to="/Product?category=web" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -314,16 +307,15 @@ const Hero = () => {
             </div>
             <h3>Digital Marketing</h3>
             <p>
-              Creative campaigns, content strategies, social media management,
-              and growth strategies to boost reach.
+              Content strategy, social media management, SEO, and digital advertising designed to increase visibility, engagement, and customer acquisition.
             </p>
             <div className="dm-service-tags">
-              <span>Social Strategy</span>
-              <span>Ad Campaigns</span>
-              <span>Growth Hacking</span>
+              <span>Social Media Mgmt</span>
+              <span>Digital Advertising</span>
+              <span>SEO &amp; Content</span>
             </div>
             <Link to="/Product?category=marketing" className="dm-service-link" onClick={(e) => e.stopPropagation()}>
-              <span>Explore Solution</span>
+              <span>Explore Service</span>
               <FaArrowRight className="dm-service-arrow" size={12} />
             </Link>
           </article>
@@ -339,28 +331,28 @@ const Hero = () => {
           </div>
           <h2>Our Creative Portfolio</h2>
           <p className="our-portfolio-subtitle">
-            Every project tells a story of creativity, strategy, and technical excellence. Explore how we turn ideas into powerful brand experiences.
+            Every project reflects our approach to strategy, creativity, and execution. Explore selected work across branding, digital experiences, content, and visual communication.
           </p>
         </div>
 
         <div className="our-portfolio-banner" data-aos="fade-up" data-aos-delay="100">
           <div className="our-portfolio-content">
             <span className="portfolio-tag">CREATIVE SHOWCASE</span>
-            <h3>Explore Our Design & Engineering Journey</h3>
+            <h3>Explore Our Creative &amp; Digital Work</h3>
             <p>
-              Discover our beautifully crafted brand identity designs, responsive websites, high-converting video edits, and premium printed collateral built for thriving businesses.
+              Explore selected brand identities, websites, video content, and visual communications created to help businesses build credibility and connect with their audiences.
             </p>
 
             <div className="portfolio-highlights">
               <div className="portfolio-pill">✦ Brand Identity</div>
-              <div className="portfolio-pill">✦ Web Applications</div>
+              <div className="portfolio-pill">✦ Web Design &amp; Development</div>
               <div className="portfolio-pill">✦ Motion Graphics</div>
-              <div className="portfolio-pill">✦ Print Collateral</div>
+              <div className="portfolio-pill">✦ Print &amp; Brand Collateral</div>
             </div>
 
             <Link to="/Product">
               <button className="portfolio1-btn">
-                <span>Explore Products & Portfolio</span>
+                <span>Explore Our Work</span>
                 <FaArrowRight size={13} />
               </button>
             </Link>
@@ -374,34 +366,33 @@ const Hero = () => {
           <div className="dm-about-home-text" data-aos="fade-right">
             <div className="dm-services-badge">
               <span className="dm-badge-dot"></span>
-              <span>ABOUT DUALMARK KREATIVE</span>
+              <span>ABOUT DUAL MARK KREATIVE</span>
             </div>
 
-            <h2>Creative Solutions With Timeless Design & Strategy</h2>
+            <h2>Creative Strategy. Strong Brands. Digital Growth.</h2>
 
             <p className="dm-about-home-lead">
-              We blend creativity, strategy, and technology to create memorable brands and digital products that inspire confidence and drive growth.
+              We blend strategy, creativity, and technology to build stronger brands and digital experiences that inspire confidence, connect with audiences, and support business growth.
             </p>
 
             <div className="dm-about-features-list">
               <div className="dm-about-feature-item">
                 <span className="feature-dot">✓</span>
-                <span>Strategic Visual Brand Identity</span>
+                <span>Strategic Branding &amp; Visual Identity</span>
               </div>
               <div className="dm-about-feature-item">
                 <span className="feature-dot">✓</span>
-                <span>Modern Web & App Development</span>
+                <span>Web Design &amp; Development</span>
               </div>
               <div className="dm-about-feature-item">
                 <span className="feature-dot">✓</span>
-                <span>High-Impact Media & Print Production</span>
+                <span>Content, Media &amp; Digital Marketing</span>
               </div>
             </div>
 
             <Link to="/About">
               <button className="about-home-btn">
-                <span>Discover Our Story</span>
-                <FaArrowRight size={13} />
+                <span>Discover Our Story →</span>
               </button>
             </Link>
           </div>
@@ -409,21 +400,21 @@ const Hero = () => {
           <div className="dm-about-home-stats-card" data-aos="fade-left" data-aos-delay="100">
             <div className="dm-about-stat-box">
               <h3>100+</h3>
-              <p>Successful Projects</p>
+              <p>Projects Delivered</p>
             </div>
 
             <div className="dm-stat-divider-h"></div>
 
             <div className="dm-about-stat-box">
               <h3>30+</h3>
-              <p>Happy Clients</p>
+              <p>Clients Served</p>
             </div>
 
             <div className="dm-stat-divider-h"></div>
 
             <div className="dm-about-stat-box">
-              <h3>7+</h3>
-              <p>Years Experience</p>
+              <h3>Since 2025</h3>
+              <p>Building Brands &amp; Digital Experiences</p>
             </div>
           </div>
         </div>
@@ -435,35 +426,34 @@ const Hero = () => {
           <div className="dm-contact-cta-content" data-aos="fade-right">
             <div className="dm-services-badge">
               <span className="dm-badge-dot"></span>
-              <span>START A PROJECT</span>
+              <span>READY TO START?</span>
             </div>
 
-            <h2>Let's Create Something Remarkable Together.</h2>
+            <h2>Ready to Build a Stronger Brand?</h2>
 
             <p className="dm-contact-cta-sub">
-              Ready to elevate your brand presence? Get in touch with our team today and let's bring your vision to life.
+              Tell us what you're building, and we'll help you turn your ideas into a stronger brand, digital presence, and creative experience.
             </p>
 
             <div className="dm-contact-quick-pills">
-              <div className="dm-quick-pill">
+              <a href="mailto:dualmarkkreative@gmail.com" className="dm-quick-pill">
                 <FaEnvelope size={14} className="pill-icon" />
-                <span>abrahamdanielmunachi@gmail.com</span>
-              </div>
+                <span>dualmarkkreative@gmail.com</span>
+              </a>
               <div className="dm-quick-pill">
                 <FaPhoneAlt size={14} className="pill-icon" />
                 <span>+234 704 457 2371</span>
               </div>
               <div className="dm-quick-pill">
                 <FaMapMarkerAlt size={14} className="pill-icon" />
-                <span>Nigeria</span>
+                <span>Owerri, Imo State, Nigeria</span>
               </div>
             </div>
 
             <div className="dm-contact-cta-buttons">
               <Link to="/Contact">
                 <button className="contact-cta-primary-btn">
-                  <span>Contact Us Today</span>
-                  <FaArrowRight size={13} />
+                  <span>Start a Project →</span>
                 </button>
               </Link>
               <a
@@ -473,7 +463,7 @@ const Hero = () => {
                 className="contact-cta-whatsapp-btn"
               >
                 <FaWhatsapp size={16} />
-                <span>Chat on WhatsApp</span>
+                <span>Chat with Us on WhatsApp</span>
               </a>
             </div>
           </div>

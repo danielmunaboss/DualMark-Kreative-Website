@@ -104,9 +104,16 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ service, onClose }) => 
   }, [handleKeyDown]);
 
   // ── WhatsApp link ──
-  const whatsappLink = `https://wa.me/2347044572371?text=${encodeURIComponent(
-    `Hi Dualmark Kreative! I’d like to discuss a project for your “${service.name}” service. Please provide me with a custom quote based on my project requirements.`
-  )}`;
+  const isVideoOrMarketing =
+    service.category === "video" ||
+    service.category === "marketing" ||
+    isVideoGallery;
+
+  const text = `Hi Dualmark Kreative! I’d like to discuss a project for your “${service.name}” service. Please provide me with a custom quote based on my project requirements.`;
+
+  const whatsappLink = isVideoOrMarketing
+    ? `https://wa.me/qr/HB24KLEQIAMXG1?text=${encodeURIComponent(text)}`
+    : `https://wa.me/2347044572371?text=${encodeURIComponent(text)}`;
 
   return (
     <>
