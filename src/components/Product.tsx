@@ -125,7 +125,7 @@ const Product: React.FC = () => {
   const getWhatsAppLink = (service: { name: string; category?: string }) => {
     const text = `Hi Dualmark Kreative! I’d like to discuss a project for your “${service.name}” service. Please provide me with a custom quote based on my requirements.`;
     if (service.category === "video" || service.category === "marketing") {
-      return `https://wa.me/qr/HB24KLEQIAMXG1?text=${encodeURIComponent(text)}`;
+      return `https://wa.me/2348062711281?text=${encodeURIComponent(text)}`;
     }
     return `https://wa.me/2347044572371?text=${encodeURIComponent(text)}`;
   };
